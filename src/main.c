@@ -2,13 +2,13 @@
 
 void main(void)
 {
-  int r;
+  float r;
   FILE* fic=NULL;
 
   fp_OuvertureFichier(&fic);
 
-  //r = partof(fic);
-r = choose();
+  r = partof(fic);
+
 if(fic!=NULL)
 {
   fclose(fic);

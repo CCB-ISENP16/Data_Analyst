@@ -5,12 +5,12 @@ void fp_OuvertureFichier(FILE** fp)
 {
   fprintf(stdout,"fp_OuvertureFichier: Begin\n");
 
-  *fp=fopen("data/googleplaystorecrop.txt","r+");
+  *fp=fopen("data/data.txt","r+");
   if(*fp==NULL)
   {
     fprintf(stdout,"Erreur ouverture fichier r+\n");
 
-    *fp=fopen("data/googleplaystorecrop.txt","w+");
+    *fp=fopen("data/data.txt","w+");
     if(*fp==NULL)
     {
       fprintf(stdout,"Erreur ouverture fichier w+. Sortie du programme\n");
@@ -23,16 +23,35 @@ void fp_OuvertureFichier(FILE** fp)
 
 float partof(FILE *fic)
 {
-
+  const char s0[2] = ",";
+  char *token;
+  char *token_temp;
+  char LineBuffer[TAILLE];
   int choix1,choix2;
-  float rate=214.4;
-
+  float rate = 0;
 
   choix1 = choose();
   choix2 = choose();
 
   printf("choix1: %d\n",choix1);
   printf("choix2: %d\n",choix2);
+
+  fseek(fic, 0, SEEK_SET);
+
+  while (fgets(LineBuffer,TAILLE,fic)!=NULL)
+  {
+    //printf("%s\n",LineBuffer);
+
+    /* get the first token */
+    token = strtok(LineBuffer, s0);
+
+    /* walk through other tokens */
+    while( token != NULL )
+    {
+      printf( " %s\n", token );
+      token = strtok(NULL, s0);
+    }
+  }
 
   return rate;
 }
@@ -49,61 +68,61 @@ int choose ()
     switch (Selected)
     {
       case 1:
-        return 1;
-        break;
+      return 1;
+      break;
 
       case 2:
-        return 2;
-        break;
+      return 2;
+      break;
 
       case 3:
-        return 3;
-        break;
+      return 3;
+      break;
 
       case 4:
-        return 4;
-        break;
+      return 4;
+      break;
 
       case 5:
-        return 5;
-        break;
+      return 5;
+      break;
 
       case 6:
-        return 6;
-        break;
+      return 6;
+      break;
 
       case 7:
-        return 7;
-        break;
+      return 7;
+      break;
 
       case 8:
-        return 8;
-        break;
+      return 8;
+      break;
 
       case 9:
-        return 9;
-        break;
+      return 9;
+      break;
 
       case 10:
-        return 10;
-        break;
+      return 10;
+      break;
 
       case 11:
-        return 11;
-        break;
+      return 11;
+      break;
 
       case 12:
-        return 12;
-        break;
+      return 12;
+      break;
 
       case 13:
-        return 13;
-        break;
+      return 13;
+      break;
 
       default:
-        printf("\n\nERREUR DE SAISIE\n\n");
-        Selected = -1;
-        break;
+      printf("\n\nERREUR DE SAISIE\n\n");
+      Selected = -1;
+      break;
     };
 
   }while (Selected == -1);

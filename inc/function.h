@@ -2,27 +2,30 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define TAILLE 500
 
+/*
 typedef struct date
 {
   int Jour;
   int Mois;
   int Annee;
 } Date;
+*/
 
 typedef struct app
 {
   char Name [50];
   char Category [50];
-  float Rating;
-  int Reviews;
+  char Rating[50];
+  char Reviews[50];
   char Size [20];
-  int Installs;
-  int Type;
-  float Price;
-  float Content_Rating;
+  char Installs[50];
+  char Type[50];
+  char Price[50];
+  char Content_Rating[50];
   char Genres [50];
-  Date Last_Updated;
+  char Last_Updated[20];
   char Current_Ver [20];
   char Android_Ver [20];
 } APP;
