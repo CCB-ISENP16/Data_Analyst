@@ -1,28 +1,29 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-
-
+#define TAILLELINEBUFFER 250
+/*
 typedef struct date
 {
   int Jour;
   int Mois;
   int Annee;
 } Date;
+*/
 
 typedef struct app
 {
   char Name [50];
   char Category [50];
-  float Rating;
-  int Reviews;
+  char Rating[50];
+  char Reviews[50];
   char Size [20];
-  int Installs;
-  int Type;
-  float Price;
-  float Content_Rating;
+  char Installs[50];
+  char Type [10];
+  char Price [10];
+  char  Content_Rating[50];
   char Genres [50];
-  Date Last_Updated;
+  char Last_Updated [50];
   char Current_Ver [20];
   char Android_Ver [20];
 } APP;
@@ -33,4 +34,5 @@ int filter(FILE* fic);  // Call choose function; sort by an attribut L
 float partof(FILE* fic); // Call choose function; goal : calculate the percentage of the choosen attribut C
 float average(FILE* fic); // Call choose function; goal : calculate the average. L
 float hopedl (FILE*fic); // Call choose function; goal : calculate the odds to be download. C
-void test (void);
+int nbdeligne(FILE*);
+APP creerUneStructure(FILE*);

@@ -18,8 +18,7 @@ void fp_OuvertureFichier(FILE** fp)
     }
   }
   fprintf(stdout,"fp_OuvertureFichier: End\n");
-}
-
+};
 
 float partof(FILE *fic)
 {
@@ -35,7 +34,7 @@ float partof(FILE *fic)
   printf("choix2: %d\n",choix2);
 
   return rate;
-}
+};
 
 int choose ()
 {
@@ -49,62 +48,125 @@ int choose ()
     switch (Selected)
     {
       case 1:
-        return 1;
-        break;
+      return 1;
+      break;
 
       case 2:
-        return 2;
-        break;
+      return 2;
+      break;
 
       case 3:
-        return 3;
-        break;
+      return 3;
+      break;
 
       case 4:
-        return 4;
-        break;
+      return 4;
+      break;
 
       case 5:
-        return 5;
-        break;
+      return 5;
+      break;
 
       case 6:
-        return 6;
-        break;
+      return 6;
+      break;
 
       case 7:
-        return 7;
-        break;
+      return 7;
+      break;
 
       case 8:
-        return 8;
-        break;
+      return 8;
+      break;
 
       case 9:
-        return 9;
-        break;
+      return 9;
+      break;
 
       case 10:
-        return 10;
-        break;
+      return 10;
+      break;
 
       case 11:
-        return 11;
-        break;
+      return 11;
+      break;
 
       case 12:
-        return 12;
-        break;
+      return 12;
+      break;
 
       case 13:
-        return 13;
-        break;
+      return 13;
+      break;
 
       default:
-        printf("\n\nERREUR DE SAISIE\n\n");
-        Selected = -1;
-        break;
+      printf("\n\nERREUR DE SAISIE\n\n");
+      Selected = -1;
+      break;
     };
 
   }while (Selected == -1);
-}
+};
+
+int filter(FILE* fic)
+{ APP AppFictive [11];
+  for (int i = 0 ; i<10; i++)
+  {
+    AppFictive[i]=creerUneStructure(fic)
+  }
+  yolo=choose();
+  if (yolo==1)
+  {
+    AppFictive = creerUneStructure(fic);
+  }
+};
+
+int nbdeligne(FILE*)
+{
+  int i
+  while (fgets(LineBuffer,TAILLELINEBUFFER,fic)!=NULL)
+  {i++};
+  return i ;
+};
+
+APP creerUneStructure(FILE*)
+{
+  APP AppFictive ;
+  int yolo;
+  char LineBuffer [TAILLELINEBUFFER];
+  char tampon [TAILLELINEBUFFER];
+  const char s[2] = ",";
+  const char b[2] = "\"";
+  char *token;
+  while (fgets(LineBuffer,TAILLELINEBUFFER,fic)!=NULL)
+  {
+    printf ("%s\n",LineBuffer);
+    token = strtok(LineBuffer, s);
+    strcpy(AppFictive->Name,token);
+    token = strtok(NULL, s);
+    strcpy(AppFictive->Category,token);
+    token = strtok(NULL, s);
+    strcpy(AppFictive->Rating,token);
+    token = strtok(NULL, s);
+    strcpy(AppFictive->Reviews,token);
+    token = strtok(NULL, s);
+    strcpy(AppFictive->Size,token);
+    token = strtok(NULL, s);
+    strcpy(AppFictive->Installs,token);
+    token = strtok(NULL, s);
+    strcpy(AppFictive->Type,token);
+    token = strtok(NULL, s);
+    strcpy(AppFictive->Content_Rating,token);
+    token = strtok(NULL, s);
+    strcpy(AppFictive->Genres,token);
+    token = strtok(NULL, s);
+    strcpy(AppFictive->Last_Updated,token);
+    token = strtok(NULL, s);
+    strcpy(AppFictive->Current_Ver,token);
+    token = strtok(NULL, s);
+    strcpy(AppFictive->Android_Ver,token);
+    token = strtok(NULL, s);
+    return AppFictive;
+  }
+  return AppFictive;
+};

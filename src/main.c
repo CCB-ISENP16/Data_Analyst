@@ -8,7 +8,8 @@ void main(void)
   fp_OuvertureFichier(&fic);
 
   //r = partof(fic);
-r = choose();
+r = filter(fic);
+printf ("%d",r);
 if(fic!=NULL)
 {
   fclose(fic);
