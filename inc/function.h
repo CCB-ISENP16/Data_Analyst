@@ -36,4 +36,7 @@ int filter(FILE* fic);  // Call choose function; sort by an attribut L
 float partof(FILE* fic); // Call choose function; goal : calculate the percentage of the choosen attribut C
 float average(FILE* fic); // Call choose function; goal : calculate the average. L
 float hopedl (FILE*fic); // Call choose function; goal : calculate the odds to be download. C
-void test (void);
+void Txt_to_Struc(FILE* fic, int *i, APP *Store);
+int nbdeligne(FILE* fic);
+void afficher_store(APP *Store);
+void printStore(APP *Store,int i);
