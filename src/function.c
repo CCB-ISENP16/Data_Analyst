@@ -28,8 +28,8 @@ float partof(FILE *fic)
   char StrSelect1[50],StrSelect2[50];
   float rate = 0;
 
-  choix1 = choose(StrSelect1);
-  choix2 = choose(StrSelect2);
+  //choix1 = choose(StrSelect1);
+  //choix2 = choose(StrSelect2);
 
   printf("choix1: %d\n",choix1);
   printf("choix2: %d\n",choix2);
@@ -37,9 +37,9 @@ float partof(FILE *fic)
   return rate;
 }
 
-int choose (char *StrSelect)
+char *choose ()
 {
-
+  static char StrSelect[50];
   int Selected;
   do{
 
@@ -49,81 +49,94 @@ int choose (char *StrSelect)
     switch (Selected)
     {
       case 1:
-      StrSelect = "Name";
+      strcpy(StrSelect,"Name");
+      //StrSelect[50] = "Name";
       printf("Le filtre est : %s\n",StrSelect);
-      return 1;
+      return StrSelect;
       break;
 
       case 2:
-      StrSelect = "Category";
+      strcpy(StrSelect,"Category");
+      //StrSelect = "Category";
       printf("Le filtre est : %s\n",StrSelect);
-      return 2;
+      return StrSelect;
       break;
 
       case 3:
-      StrSelect = "Rating";
+      strcpy(StrSelect,"Rating");
+      //StrSelect = "Rating";
       printf("Le filtre est : %s\n",StrSelect);
-      return 3;
+      return StrSelect;
       break;
 
       case 4:
-      StrSelect = "Reviews";
+      strcpy(StrSelect,"Reviews");
+      //StrSelect = "Reviews";
       printf("Le filtre est : %s\n",StrSelect);
-      return 4;
+      return StrSelect;
       break;
 
       case 5:
-      StrSelect = "Size";
+      strcpy(StrSelect,"Size");
+      //StrSelect = "Size";
       printf("Le filtre est : %s\n",StrSelect);
-      return 5;
+      return StrSelect;
       break;
 
       case 6:
-      StrSelect = "Installs";
+      strcpy(StrSelect,"Installs");
+      // StrSelect = "Installs";
       printf("Le filtre est : %s\n",StrSelect);
-      return 6;
+      return StrSelect;
       break;
 
       case 7:
-      StrSelect = "Type";
+      strcpy(StrSelect,"Type");
+      //StrSelect = "Type";
       printf("Le filtre est : %s\n",StrSelect);
-      return 7;
+      return StrSelect;
       break;
 
       case 8:
-      StrSelect = "Price";
+      strcpy(StrSelect,"Price");
+      //StrSelect = "Price";
       printf("Le filtre est : %s\n",StrSelect);
-      return 8;
+      return StrSelect;
       break;
 
       case 9:
-      StrSelect = "Content_Rating";
+      strcpy(StrSelect,"Content_Rating");
+      //StrSelect = "Content_Rating";
       printf("Le filtre est : %s\n",StrSelect);
-      return 9;
+      return StrSelect;
       break;
 
       case 10:
-      StrSelect = "Genres";
+      strcpy(StrSelect,"Genres");
+      //StrSelect = "Genres";
       printf("Le filtre est : %s\n",StrSelect);
-      return 10;
+      return StrSelect;
       break;
 
       case 11:
-      StrSelect = "Last_Updated";
+      strcpy(StrSelect,"Last_Updated");
+      //StrSelect = "Last_Updated";
       printf("Le filtre est : %s\n",StrSelect);
-      return 11;
+      return StrSelect;
       break;
 
       case 12:
-      StrSelect = "Current_Ver";
+      strcpy(StrSelect,"Current_Ver");
+      //StrSelect = "Current_Ver";
       printf("Le filtre est : %s\n",StrSelect);
-      return 12;
+      return StrSelect;
       break;
 
       case 13:
-      StrSelect = "Android_Ver";
+      strcpy(StrSelect,"Android_Ver");
+      //StrSelect = "Android_Ver";
       printf("Le filtre est : %s\n",StrSelect);
-      return 13;
+      return StrSelect;
       break;
 
       default:
@@ -236,10 +249,118 @@ void printStore(APP *Store,int i)
 int filter(APP *Store, APP *Store_Filtred)
 {
   int choix = 0 ;
-  char StrSelect[50] = "Blabla";
+  char *StrSelect[50];
+  char Selected;
 
-  choix = choose(StrSelect);
+  *StrSelect = choose();
 
-  printf("Filter choosen : %s\n",StrSelect);
+  printf("Filter choosen : %s\n",*StrSelect);
+  }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  char *Paramete_Of_Name()
+  {
+    static char SearchParameter[50];
+    printf("Entrer un parametre de recherche (Nom d'une App): \n");
+    scanf("%s\n",SearchParameter);
+    return SearchParameter;
+  }
+  char *Paramete_Of_Category()
+  {
+    static char SearchParameter[50];
+    printf("Entrer un parametre de recherche (Nom d'une Category): \n");
+    scanf("%s\n",SearchParameter);
+    return SearchParameter;
+  }
+  int Paramete_Of_Rating()
+  {
+    int SearchParameter;
+    printf("Entrer un parametre de recherche (Note): \n");
+    scanf("%d\n",&SearchParameter);
+    return SearchParameter;
+  }
+  int Paramete_Of_Reviews()
+  {
+    int SearchParameter;
+    printf("Entrer un parametre de recherche (Nb de Reviews): \n");
+    scanf("%d\n",&SearchParameter);
+    return SearchParameter;
+  }
+  char *Paramete_Of_Size()
+  {
+    static char SearchParameter[50];
+    printf("Entrer un parametre de recherche (Taille de l'App): \n");
+    scanf("%s\n",SearchParameter);
+    return SearchParameter;
+  }
+  int Paramete_Of_Installs()
+  {
+    int SearchParameter;
+    printf("Entrer un parametre de recherche (Nb d'Installs): \n");
+    scanf("%d\n",&SearchParameter);
+    return SearchParameter;
+  }
+  char *Paramete_Of_Type()
+  {
+    static char SearchParameter[50];
+    printf("Entrer un parametre de recherche (Type d'App): \n");
+    scanf("%s\n",SearchParameter);
+    return SearchParameter;
+  }
+  char *Paramete_Of_Price()
+  {
+    static char SearchParameter[50];
+    printf("Entrer un parametre de recherche (Prix de l'App): \n");
+    scanf("%s\n",SearchParameter);
+    return SearchParameter;
+  }
+  char *Paramete_Of_Content_Rating()
+  {
+    static char SearchParameter[50];
+    printf("Entrer un parametre de recherche (Content_Rating): \n");
+    scanf("%s\n",SearchParameter);
+    return SearchParameter;
+  }
+  char *Paramete_Of_Genres()
+  {
+    static char SearchParameter[50];
+    printf("Entrer un parametre de recherche (Genres de l'App): \n");
+    scanf("%s\n",SearchParameter);
+    return SearchParameter;
+  }
+  char *Paramete_Of_Last_Updated()
+  {
+    static char SearchParameter[50];
+    printf("Entrer un parametre de recherche (Last_Updated de l'App): \n");
+    scanf("%s\n",SearchParameter);
+    return SearchParameter;
+  }
+  char *Paramete_Of_Current_Ver()
+  {
+    static char SearchParameter[50];
+    printf("Entrer un parametre de recherche (Current_Ver de l'App): \n");
+    scanf("%s\n",SearchParameter);
+    return SearchParameter;
+  }
+  char *Paramete_Of_Android_Ver()
+  {
+    static char SearchParameter[50];
+    printf("Entrer un parametre de recherche (Android_Ver de l'App): \n");
+    scanf("%s\n",SearchParameter);
+    return SearchParameter;
   }
