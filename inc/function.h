@@ -17,10 +17,10 @@ typedef struct app
 {
   char Name [50];
   char Category [50];
-  char Rating[50];
-  char Reviews[50];
+  int Rating;
+  int Reviews;
   char Size [20];
-  char Installs[50];
+  int Installs;
   char Type[50];
   char Price[50];
   char Content_Rating[50];
@@ -31,12 +31,12 @@ typedef struct app
 } APP;
 
 void fp_OuvertureFichier(FILE **);
-int choose (); // goal : choose an attribut CL
-int filter(FILE* fic);  // Call choose function; sort by an attribut L
-float partof(FILE* fic); // Call choose function; goal : calculate the percentage of the choosen attribut C
-float average(FILE* fic); // Call choose function; goal : calculate the average. L
-float hopedl (FILE*fic); // Call choose function; goal : calculate the odds to be download. C
-void Txt_to_Struc(FILE* fic, int *i, APP *Store);
-int nbdeligne(FILE* fic);
-void afficher_store(APP *Store);
-void printStore(APP *Store,int i);
+int choose (char *StrSelect); // Goal : choose an attribut CL
+int filter(APP *Store, APP *Store_Filtred);  // Call choose function; sort by an attribut L
+float partof(FILE* fic); // Call choose function; Goal : calculate the percentage of the choosen attribut C
+float average(FILE* fic); // Call choose function; Goal : calculate the average. L
+float hopedl (FILE*fic); // Call choose function; Goal : calculate the odds to be download. C
+
+void Txt_to_Struc(FILE* fic, int *i, APP *Store); // Read the .txt file in order to create a struc of it
+int nbdeligne(FILE* fic); // count the number of ligne and so the numbre of App
+void printStore(APP *Store,int i); // Print all the App

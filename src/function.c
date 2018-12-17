@@ -23,40 +23,21 @@ void fp_OuvertureFichier(FILE** fp)
 
 float partof(FILE *fic)
 {
-  // const char s0[2] = ",";
-  // char *token;
-  // char *token_temp;
-  // char LineBuffer[TAILLE];
-  // int choix1,choix2;
-  // float rate = 0;
-  //
-  // choix1 = choose();
-  // choix2 = choose();
-  //
-  // printf("choix1: %d\n",choix1);
-  // printf("choix2: %d\n",choix2);
-  //
-  // fseek(fic, 0, SEEK_SET);
-  //
-  // while (fgets(LineBuffer,TAILLE,fic)!=NULL)
-  // {
-  //   //printf("%s\n",LineBuffer);
-  //
-  //   /* get the first token */
-  //   token = strtok(LineBuffer, s0);
-  //
-  //   /* walk through other tokens */
-  //   while( token != NULL )
-  //   {
-  //     printf( " %s\n", token );
-  //     token = strtok(NULL, s0);
-  //   }
-  // }
-  //
-  // return rate;
+
+  int choix1 = 0,choix2 = 0;
+  char StrSelect1[50],StrSelect2[50];
+  float rate = 0;
+
+  choix1 = choose(StrSelect1);
+  choix2 = choose(StrSelect2);
+
+  printf("choix1: %d\n",choix1);
+  printf("choix2: %d\n",choix2);
+
+  return rate;
 }
 
-int choose ()
+int choose (char *StrSelect)
 {
 
   int Selected;
@@ -68,54 +49,80 @@ int choose ()
     switch (Selected)
     {
       case 1:
+      StrSelect = "Name";
+      printf("Le filtre est : %s\n",StrSelect);
       return 1;
       break;
 
       case 2:
+      StrSelect = "Category";
+      printf("Le filtre est : %s\n",StrSelect);
       return 2;
       break;
 
       case 3:
+      StrSelect = "Rating";
+      printf("Le filtre est : %s\n",StrSelect);
       return 3;
       break;
 
       case 4:
+      StrSelect = "Reviews";
+      printf("Le filtre est : %s\n",StrSelect);
       return 4;
       break;
 
       case 5:
+      StrSelect = "Size";
+      printf("Le filtre est : %s\n",StrSelect);
       return 5;
       break;
 
       case 6:
+      StrSelect = "Installs";
+      printf("Le filtre est : %s\n",StrSelect);
       return 6;
       break;
 
       case 7:
+      StrSelect = "Type";
+      printf("Le filtre est : %s\n",StrSelect);
       return 7;
       break;
 
       case 8:
+      StrSelect = "Price";
+      printf("Le filtre est : %s\n",StrSelect);
       return 8;
       break;
 
       case 9:
+      StrSelect = "Content_Rating";
+      printf("Le filtre est : %s\n",StrSelect);
       return 9;
       break;
 
       case 10:
+      StrSelect = "Genres";
+      printf("Le filtre est : %s\n",StrSelect);
       return 10;
       break;
 
       case 11:
+      StrSelect = "Last_Updated";
+      printf("Le filtre est : %s\n",StrSelect);
       return 11;
       break;
 
       case 12:
+      StrSelect = "Current_Ver";
+      printf("Le filtre est : %s\n",StrSelect);
       return 12;
       break;
 
       case 13:
+      StrSelect = "Android_Ver";
+      printf("Le filtre est : %s\n",StrSelect);
       return 13;
       break;
 
@@ -123,7 +130,7 @@ int choose ()
       printf("\n\nERREUR DE SAISIE\n\n");
       Selected = -1;
       break;
-    };
+    }
 
   }while (Selected == -1);
 }
@@ -143,38 +150,51 @@ void Txt_to_Struc(FILE* fic, int *i, APP *Store)
     printf("i : %d\n",*i); // Only for DEBUG
 
     token = strtok(LineBuffer, s);
-    strcpy(Store[*i]. Name,token);
+    strcpy(Store[*i].Name,token);
+
     token = strtok(NULL, s);
     strcpy(Store[*i].Category,token);
+
     token = strtok(NULL, s);
-    strcpy(Store[*i].Rating,token);
+    Store[*i].Rating = atoi(token);
+
     token = strtok(NULL, s);
-    strcpy(Store[*i].Reviews,token);
+    Store[*i].Reviews = atoi(token);
+
     token = strtok(NULL, s);
     strcpy(Store[*i].Size,token);
+
     token = strtok(NULL, s);
-    strcpy(Store[*i].Installs,token);
+    Store[*i].Installs = atoi(token);
+
     token = strtok(NULL, s);
     strcpy(Store[*i].Type,token);
+
     token = strtok(NULL, s);
     strcpy(Store[*i].Price,token);
+
     token = strtok(NULL, s);
     strcpy(Store[*i].Content_Rating,token);
+
     token = strtok(NULL, s);
     strcpy(Store[*i].Genres,token);
+
     token = strtok(NULL, s);
     strcpy(Store[*i].Last_Updated,token);
+
     token = strtok(NULL, s);
     strcpy(Store[*i].Current_Ver,token);
+
     token = strtok(NULL, s);
     strcpy(Store[*i].Android_Ver,token);
+
     token = strtok(NULL, s);
     *i = *i+1;
 
     printf("End of whileloop\n"); // Only for DEBUG
   }
   printf("End of creerUneStructure function\n"); //Only for DEBUG
-};
+}
 
 
 int nbdeligne(FILE* fic)
@@ -197,10 +217,10 @@ void printStore(APP *Store,int i)
 
     printf("\rName of App :            \t\t%s\n",Store[j].Name);
     printf("\rCategory of App :        \t\t%s\n",Store[j].Category);
-    printf("\rRating of App :          \t\t%s\n",Store[j].Rating);
-    printf("\rReviews of App :         \t\t%s\n",Store[j].Reviews);
+    printf("\rRating of App :          \t\t%d\n",Store[j].Rating);
+    printf("\rReviews of App :         \t\t%d\n",Store[j].Reviews);
     printf("\rSize of App :            \t\t%s\n",Store[j].Size);
-    printf("\rNb Installs of App :     \t\t%s\n",Store[j].Installs);
+    printf("\rNb Installs of App :     \t\t%d\n",Store[j].Installs);
     printf("\rType of App :            \t\t%s\n",Store[j].Type);
     printf("\rPrice of App :           \t\t%s\n",Store[j].Price);
     printf("\rContent_Rating of App :  \t\t%s\n",Store[j].Content_Rating);
@@ -212,3 +232,14 @@ void printStore(APP *Store,int i)
     printf("************************\n");
   }
 }
+
+int filter(APP *Store, APP *Store_Filtred)
+{
+  int choix = 0 ;
+  char StrSelect[50] = "Blabla";
+
+  choix = choose(StrSelect);
+
+  printf("Filter choosen : %s\n",StrSelect);
+
+  }
