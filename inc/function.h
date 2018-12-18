@@ -34,3 +34,4 @@ float partof(FILE* fic); // Call choose function; goal : calculate the percentag
 float average(FILE* fic); // Call choose function; goal : calculate the average. L
 float hopedl (FILE*fic); // Call choose function; goal : calculate the odds to be download. C
 void test (void);
+void ResizeStruct(APP*Store,FILE*fic);
