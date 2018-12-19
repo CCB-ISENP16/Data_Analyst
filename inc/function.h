@@ -17,10 +17,10 @@ typedef struct app
 {
   char Name [50];
   char Category [50];
-  int Rating;
-  int Reviews;
+  float Rating;
+  float Reviews;
   char Size [20];
-  int Installs;
+  float Installs;
   char Type[50];
   char Price[50];
   char Content_Rating[50];
@@ -31,15 +31,18 @@ typedef struct app
 } APP;
 
 void fp_OuvertureFichier(FILE **);
-char *choose (); // Goal : choose an attribut CL
-int filter(APP *Store, APP *Store_Filtred);  // Call choose function; sort by an attribut L
+char *choose (int *Selected); // Goal : choose an attribut CL
+void filter (APP*Store,int Selected,int j);  // Call choose function; sort by an attribut L
 float partof(FILE* fic); // Call choose function; Goal : calculate the percentage of the choosen attribut C
-float average(FILE* fic); // Call choose function; Goal : calculate the average. L
+void average(APP *Store,int Selected, int i); // Call choose function; Goal : calculate the average. L
 float hopedl (FILE*fic); // Call choose function; Goal : calculate the odds to be download. C
 
 void Txt_to_Struc(FILE* fic, int *i, APP *Store); // Read the .txt file in order to create a struc of it
 int nbdeligne(FILE* fic); // count the number of ligne and so the numbre of App
 void printStore(APP *Store,int i); // Print all the App
+void Correct_Current_Ver(APP *Store,int i);
+void Correct_Rating(APP *Store,int i);
+void menu();
 
 char *Paramete_Of_Name();
 char *Paramete_Of_Category();

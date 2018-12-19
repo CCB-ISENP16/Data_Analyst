@@ -5,21 +5,28 @@ void main(void)
   float r;
   APP Store[200];
   APP Store_Filtred[200];
-  int i=0;
+  int NbStructs = 0;
   int j=0;
   int a;
+  int Selected = 0;
   FILE* fic=NULL;
+  char *StrSelect[50];
 
   fp_OuvertureFichier(&fic); // open file .txt
 
-  Txt_to_Struc(fic,&i,Store);
-  printStore(Store,i);
-  a = filter(Store,Store_Filtred);
+  menu();
+  Txt_to_Struc(fic,&NbStructs,Store);
+  *StrSelect = choose(&Selected);
+  //printStore(Store,i);
+  //a = filter(Store,Store_Filtred);
+  Correct_Current_Ver(Store,NbStructs);
+  //Correct_Rating(Store,NbStructs);
+  //average(Store,Selected,NbStructs);
   printf("Fin de programme\n");
 
-if(fic!=NULL)
-{
-  fclose(fic);
-  fic=NULL;
-}
+  if(fic!=NULL)
+  {
+    fclose(fic);
+    fic=NULL;
+  }
 }
