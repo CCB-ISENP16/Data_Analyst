@@ -42,7 +42,7 @@ int nbdeligne(FILE* fic); // count the number of ligne and so the numbre of App
 void printStore(APP *Store,int i); // Print all the App
 void Correct_Current_Ver(APP *Store,int i);
 void Correct_Rating(APP *Store,int i);
-void menu();
+void menu(FILE* fic);
 
 char *Paramete_Of_Name();
 char *Paramete_Of_Category();

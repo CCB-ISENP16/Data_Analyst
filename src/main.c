@@ -14,12 +14,12 @@ void main(void)
 
   fp_OuvertureFichier(&fic); // open file .txt
 
-  menu();
-  Txt_to_Struc(fic,&NbStructs,Store);
-  *StrSelect = choose(&Selected);
+  menu(fic);
+  //Txt_to_Struc(fic,&NbStructs,Store);
+  //*StrSelect = choose(&Selected);
   //printStore(Store,i);
   //a = filter(Store,Store_Filtred);
-  Correct_Current_Ver(Store,NbStructs);
+  //Correct_Current_Ver(Store,NbStructs);
   //Correct_Rating(Store,NbStructs);
   //average(Store,Selected,NbStructs);
   printf("Fin de programme\n");

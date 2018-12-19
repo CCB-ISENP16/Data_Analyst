@@ -17,7 +17,7 @@ void fp_OuvertureFichier(FILE** fp)
       exit(-1);
     }
   }
-  fprintf(stdout,"fp_OuvertureFichier: End\n");
+  fprintf(stdout,"fp_OuvertureFichier: End\n\n");
 }
 
 
@@ -222,6 +222,7 @@ int nbdeligne(FILE* fic)
 
 void printStore(APP *Store,int i)
 {
+  printf("Start of printStore function\n");
 
   for(int j=0;j<i;j++)
   {
@@ -243,6 +244,7 @@ void printStore(APP *Store,int i)
 
     printf("************************\n");
   }
+  printf("End of printStore function\n");
 }
 
 
@@ -684,11 +686,48 @@ char *Paramete_Of_Android_Ver()
   return SearchParameter;
 }
 
-void menu()
+void menu(FILE* fic)
 {
 
-  printf("🤶🎅 Principal Menu 🎅🤶\n");
+  int Selected = 0,NbStructs = 0,choix = 0;
+  APP Store[200];
+  char *StrSelect[50];
 
-  printf("1) Shows le PlayStore\n\n");
+  Txt_to_Struc(fic,&NbStructs,Store);
 
+do{
+
+  printf("\n\n🤶🎅 Menu Principal 🎅🤶\n\n");
+
+  printf("1) Afficher le PlayStore\n");
+  printf("2) Recherche Avancée\n");
+  printf("3) Calculer une moyenne\n");
+  printf("4) Calculer une esperance\n");
+  printf("5) Quiter le programme\n\n");
+
+  printf("Votre choix : ");
+  scanf("%d",&Selected);
+
+  //Txt_to_Struc(fic,&NbStructs,Store);
+
+  switch (Selected)
+  {
+    case 1:
+    printStore(Store,NbStructs);
+    break;
+
+    case 3:
+    *StrSelect = choose(&choix);
+    average(Store,choix,NbStructs);
+    break;
+
+    case 5:
+    printf("\n\n🎉🍾 Joyeuse fete ! 🍾🎉\n");
+    break;
+
+    default :
+    printf("Erreur de saisie\n");
+    break;
+  }
+}while(Selected != 5);
 }
