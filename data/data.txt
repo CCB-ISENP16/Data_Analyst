@@ -98,4 +98,4 @@ All_of_the_parking_lot_-_National_Park_application_(parking_lot_search_/_parking
 Inquiry_Fines_and_Debits_of_Vehicles,AUTO_AND_VEHICLES,4.4,2680,2.2M,500000,Free,0,Everyone,Auto_&_Vehicles,March_20_2018,1.03,4.0.3_and_up
 Gas_Station,AUTO_AND_VEHICLES,4.0,1288,4.5M,100000,Free,0,Everyone,Auto_&_Vehicles,April_21_2018,2.17,4.0_and_up
 Hush_-_Beauty_for_Everyone,BEAUTY,4.7,18900,17M,500000,Free,0,Everyone,Beauty,August_2_2018,6.10.1,5.0_and_up
-ipsy:_Makeup__Beauty__and_Tips,BEAUTY,4.9,49790,14M,1000000,Free,0,Everyone,Beauty,November_9_2017,2.3.0,4.1_and_up
+ipsy:_Makeup__Beauty__and_Tips,BEAUTY,4.9,49790,14M,1000000,Free,$12,Everyone,Beauty,November_9_2017,2.3.0,4.1_and_up

@@ -3,8 +3,8 @@
 void main(void)
 {
   float r;
-  APP Store[200];
-  APP Store_Filtred[200];
+  APPtxt Store[200];
+  //APPtxt Store_Filtred[200];
   int NbStructs = 0;
   int j=0;
   int a;
