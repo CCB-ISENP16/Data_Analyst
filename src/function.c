@@ -23,18 +23,100 @@ void fp_OuvertureFichier(FILE** fp)
 
 void partof(APPtype *New_Store,int choix,int NbStructs)
 {
-printf("Start of partof function\n");
+  printf("Start of partof function\n");
   float Everyone=0,Teen=0,Everyone_10=0,Mature_17=0,Adults_only_18=0;
   float Rating_Of_Everyone=0,Rating_Of_Teen=0,Rating_Of_Everyone_10=0,Rating_Of_Mature_17=0,Rating_Of_Adults_only_18=0;
+
+  float ART_AND_DESIGN=0,
+        AUTO_AND_VEHICLES=0,
+        BEAUTY=0,
+        BOOKS_AND_REFERENCE=0,
+        BUSINESS=0;
+
+  float Rating_Of_ART_AND_DESIGN=0,
+        Rating_Of_AUTO_AND_VEHICLES=0,
+        Rating_Of_BEAUTY=0,
+        Rating_Of_BOOKS_AND_REFERENCE=0,
+        Rating_Of_BUSINESS=0;
+
   int i = 0;
   int Rating = 0;
+  float floatRating = 0.0;
+  char StrParameter[20];
+  char Name[20];
+  float floatParameter = 0.0;
+
+  //char Category1 [50];
 
   switch (choix)
   {
     case 1: //Name
+    /*
+    printf("Entrer un parametre :\n");
+    scanf("%s",StrParameter);
+
+    for(int j=1;j<NbStructs;j++)
+    {
+      for(int k=1;k<20;k++)
+      {
+        strcmp(StrParameter,Name[k]);
+      }
+        i++;
+        //printf("i : %d\n",i); //Only for DEBUG
+    }
+    */
     break;
 
     case 2: // Category
+
+        printf("NbStructs : %d\n",NbStructs);
+        for (int j=1;j<NbStructs;j++)
+        {
+          if(strcmp(New_Store[j].Category,"ART_AND_DESIGN") == 0)
+          {
+            ART_AND_DESIGN=ART_AND_DESIGN + 1.0;
+            printf("ART_AND_DESIGN : %.0f\n",ART_AND_DESIGN); //Only for DEBUG
+          }
+
+          if(strcmp(New_Store[j].Category,"AUTO_AND_VEHICLES") == 0)
+          {
+            AUTO_AND_VEHICLES=AUTO_AND_VEHICLES+1;
+            printf("AUTO_AND_VEHICLES : %.0f\n",AUTO_AND_VEHICLES); //Only for DEBUG
+          }
+
+          if(strcmp(New_Store[j].Category,"BEAUTY") == 0)
+          {
+            BEAUTY=BEAUTY+1;
+            printf("BEAUTY : %.0f\n",BEAUTY); //Only for DEBUG
+          }
+
+          if(strcmp(New_Store[j].Category,"BOOKS_AND_REFERENCE") == 0)
+          {
+            BOOKS_AND_REFERENCE=BOOKS_AND_REFERENCE+1;
+            printf("BOOKS_AND_REFERENCE : %.0f\n",BOOKS_AND_REFERENCE); //Only for DEBUG
+          }
+
+          if(strcmp(New_Store[j].Category,"BUSINESS") == 0)
+          {
+            BUSINESS=BUSINESS+1;
+            printf("BUSINESS : %.0f\n",BUSINESS); //Only for DEBUG
+          }
+        }
+        Rating_Of_ART_AND_DESIGN = ((ART_AND_DESIGN/(NbStructs-1.0))*100.0);
+        Rating_Of_AUTO_AND_VEHICLES = ((AUTO_AND_VEHICLES/(NbStructs-1.0))*100.0);
+        Rating_Of_BEAUTY = ((BEAUTY/(NbStructs-1.0))*100.0);
+        Rating_Of_BOOKS_AND_REFERENCE = ((BOOKS_AND_REFERENCE/(NbStructs-1.0))*100.0);
+        Rating_Of_BUSINESS = ((BUSINESS/(NbStructs-1.0))*100.0);
+
+        printf("\n\n*** RESULTS ***\n\n");
+        printf("Rating of ART_AND_DESIGN app : %.2f \n",Rating_Of_ART_AND_DESIGN);
+        printf("Rating of AUTO_AND_VEHICLES app : %.2f \n",Rating_Of_AUTO_AND_VEHICLES);
+        printf("Rating of BEAUTY app : %.2f \n",Rating_Of_BEAUTY);
+        printf("Rating of BOOKS_AND_REFERENCE app : %.2f \n",Rating_Of_BOOKS_AND_REFERENCE);
+        printf("Rating of BUSINESS app : %.2f \n",Rating_Of_BUSINESS);
+        printf("\n***********************\n\n");
+
+        printf("End of case 7\n");
     break;
 
     case 3: // Rating
@@ -47,6 +129,24 @@ printf("Start of partof function\n");
     break;
 
     case 6: // Installs
+    printf("Entrer un parametre :\n");
+    scanf("%f",&floatParameter);
+
+    for(int j=1;j<NbStructs;j++)
+    {
+
+      //printf("INSTALL : %f\n",New_Store[j].Installs); // Only for DEBUG
+      //printf("INSTALL_HARD : %f\n",floatParameter); // Only for DEBUG
+
+      if(New_Store[j].Installs < floatParameter)
+      {
+        i++;
+        //printf("i : %d\n",i); //Only for DEBUG
+      }
+    }
+    floatRating = ((i/(NbStructs-1.0))*100);
+    printf("%.2f percent of the app have been download less than %.2f\n",floatRating,floatParameter);
+    printf("End of case 6\n");
     break;
 
     case 7: // Type
@@ -57,7 +157,6 @@ printf("Start of partof function\n");
       if(strcmp(New_Store[j].Type,"Free") == 0)
       {
         i++;
-
         //printf("i : %d\n",i); Only for DEBUG
       }
     }
@@ -110,11 +209,13 @@ printf("Start of partof function\n");
     Rating_Of_Mature_17 = ((Mature_17/(NbStructs-1))*100);
     Rating_Of_Adults_only_18 = ((Adults_only_18/(NbStructs-1))*100);
 
+    printf("\n\n*** RESULTS ***\n\n");
     printf("Rating of Everyone app : %.2f \n",Rating_Of_Everyone);
     printf("Rating of Teen app : %.2f \n",Rating_Of_Teen);
     printf("Rating of Everyone_10 app : %.2f \n",Rating_Of_Everyone_10);
     printf("Rating of Mature_17 app : %.2f \n",Rating_Of_Mature_17);
     printf("Rating of Adults_only_18 app : %.2f \n",Adults_only_18);
+    printf("\n***********************\n\n");
 
     printf("End of case 7\n");
     break;
@@ -147,91 +248,91 @@ char *choose (int *Selected)
       case 1:
       strcpy(StrSelect,"Name");
       *Selected = 1;
-      printf("Le filtre est : %s\n",StrSelect);
+      //printf("Le filtre est : %s\n",StrSelect);
       return StrSelect;
       break;
 
       case 2:
       strcpy(StrSelect,"Category");
       *Selected = 2;
-      printf("Le filtre est : %s\n",StrSelect);
+      //printf("Le filtre est : %s\n",StrSelect);
       return StrSelect;
       break;
 
       case 3:
       strcpy(StrSelect,"Rating");
       *Selected = 3;
-      printf("Le filtre est : %s\n",StrSelect);
+      //printf("Le filtre est : %s\n",StrSelect);
       return StrSelect;
       break;
 
       case 4:
       strcpy(StrSelect,"Reviews");
       *Selected = 4;
-      printf("Le filtre est : %s\n",StrSelect);
+      //printf("Le filtre est : %s\n",StrSelect);
       return StrSelect;
       break;
 
       case 5:
       strcpy(StrSelect,"Size");
       *Selected = 5;
-      printf("Le filtre est : %s\n",StrSelect);
+      //printf("Le filtre est : %s\n",StrSelect);
       return StrSelect;
       break;
 
       case 6:
       strcpy(StrSelect,"Installs");
       *Selected = 6;
-      printf("Le filtre est : %s\n",StrSelect);
+      //printf("Le filtre est : %s\n",StrSelect);
       return StrSelect;
       break;
 
       case 7:
       strcpy(StrSelect,"Type");
       *Selected = 7;
-      printf("Le filtre est : %s\n",StrSelect);
+      //printf("Le filtre est : %s\n",StrSelect);
       return StrSelect;
       break;
 
       case 8:
       strcpy(StrSelect,"Price");
       *Selected = 8;
-      printf("Le filtre est : %s\n",StrSelect);
+      //printf("Le filtre est : %s\n",StrSelect);
       return StrSelect;
       break;
 
       case 9:
       strcpy(StrSelect,"Content_Rating");
       *Selected = 9;
-      printf("Le filtre est : %s\n",StrSelect);
+      //printf("Le filtre est : %s\n",StrSelect);
       return StrSelect;
       break;
 
       case 10:
       strcpy(StrSelect,"Genres");
       *Selected = 10;
-      printf("Le filtre est : %s\n",StrSelect);
+      //printf("Le filtre est : %s\n",StrSelect);
       return StrSelect;
       break;
 
       case 11:
       strcpy(StrSelect,"Last_Updated");
       *Selected = 11;
-      printf("Le filtre est : %s\n",StrSelect);
+      //printf("Le filtre est : %s\n",StrSelect);
       return StrSelect;
       break;
 
       case 12:
       strcpy(StrSelect,"Current_Ver");
       *Selected = 12;
-      printf("Le filtre est : %s\n",StrSelect);
+      //printf("Le filtre est : %s\n",StrSelect);
       return StrSelect;
       break;
 
       case 13:
       strcpy(StrSelect,"Android_Ver");
       *Selected = 13;
-      printf("Le filtre est : %s\n",StrSelect);
+      //printf("Le filtre est : %s\n",StrSelect);
       return StrSelect;
       break;
 
@@ -255,7 +356,7 @@ void Txt_to_Struc(FILE* fic, int *i, APPtxt *Store)
 
   while (fgets(LineBuffer,TAILLE,fic)!=NULL)
   {
-    printf("Star of while loop\n"); // Only for DEBUG
+    //printf("Star of while loop\n"); // Only for DEBUG
 
     token = strtok(LineBuffer, s); // Cut the raw ligne in multiple string placed in "token"
     strcpy(Store[*i].Name,token); // Copy  the token in the correspondant member of the struct
@@ -298,9 +399,9 @@ void Txt_to_Struc(FILE* fic, int *i, APPtxt *Store)
 
     *i = *i+1; // Just a counter in place each member in each struct
 
-    printf("End of whileloop\n"); // Only for DEBUG
+    //printf("End of whileloop\n"); // Only for DEBUG
   }
-  printf("End of creerUneStructure function\n"); //Only for DEBUG
+  printf("End of creerUneStructure function\n\n"); //Only for DEBUG
 }
 
 void RawStructToTypeStruct(APPtxt *Raw_Store, APPtype *New_Store,int NbStructs)
@@ -365,7 +466,6 @@ void printStore(APPtype *Store,int i)
   printf("End of printStore function\n");
 }
 
-
 void ResizeStruct(APPtxt *Store,FILE*fic) // dimension le tableau de structure selon le fichier
 {
 
@@ -377,7 +477,6 @@ void ResizeStruct(APPtxt *Store,FILE*fic) // dimension le tableau de structure s
   //printf("taille %d\n", NewStore);
   //pt_nouveau=malloc(i*sizeof(DVD));
 }
-
 
 void filter (APPtxt *Store,int Selected,int j)
 {
@@ -612,14 +711,6 @@ void filter (APPtxt *Store,int Selected,int j)
   //   };
 }
 
-
-
-
-
-
-
-
-
 void average(APPtype *Store,int Selected, int i)
 {
   printf("Start of Average function\n"); // Only For DEBUG
@@ -634,7 +725,7 @@ void average(APPtype *Store,int Selected, int i)
     {
       Sum = Sum + (Store[j].Rating);
       //printf("Sum : %.2f\n",Sum);
-      printf("Rating of App n°%d : %.2f\n",j,Store[j].Rating); //Only For DEBUG
+      // printf("Rating of App n°%d : %.2f\n",j,Store[j].Rating); //Only For DEBUG
     }
     //printf("i : %d\n",i);
 
@@ -647,7 +738,7 @@ void average(APPtype *Store,int Selected, int i)
     for (int j=1;j<i;j++) // j start at 1 because the first struct is the definition of the member (App,Category,Rating,Reviews,Size,Installs,Type,Price,Content_Rating,Genres,Last_Updated,Current_Ver,Android_Ver)
     {
       Sum = Sum + (Store[j].Reviews);
-      printf("Nb of Reviews of App n°%d : %.2f\n",j,Store[j].Reviews); // Only For DEBUG
+      // printf("Nb of Reviews of App n°%d : %.2f\n",j,Store[j].Reviews); // Only For DEBUG
     }
 
     Average = Sum/i;
@@ -659,7 +750,7 @@ void average(APPtype *Store,int Selected, int i)
     for (int j=1;j<i;j++) // j start at 1 because the first struct is the definition of the member (App,Category,Rating,Reviews,Size,Installs,Type,Price,Content_Rating,Genres,Last_Updated,Current_Ver,Android_Ver)
     {
       Sum = Sum + (Store[j].Size);
-      printf("Size of App n°%d : %.0f\n",j,Store[j].Size); // Only For DEBUG
+      // printf("Size of App n°%d : %.0f\n",j,Store[j].Size); // Only For DEBUG
     }
 
     Average = Sum/i;
@@ -671,7 +762,7 @@ void average(APPtype *Store,int Selected, int i)
     for (int j=0;j<i;j++) // j start at 1 because the first struct is the definition of the member (App,Category,Rating,Reviews,Size,Installs,Type,Price,Content_Rating,Genres,Last_Updated,Current_Ver,Android_Ver)
     {
       Sum = Sum + (Store[j].Installs);
-      printf("Nb of Installs of App n°%d : %.2f\n",j,Store[j].Installs); // Only for DEBUG
+      // printf("Nb of Installs of App n°%d : %.2f\n",j,Store[j].Installs); // Only for DEBUG
     }
 
     Average = Sum/i;
@@ -683,7 +774,7 @@ void average(APPtype *Store,int Selected, int i)
     for (int j=1;j<i;j++) // j start at 1 because the first struct is the definition of the member (App,Category,Rating,Reviews,Size,Installs,Type,Price,Content_Rating,Genres,Last_Updated,Current_Ver,Android_Ver)
     {
       Sum = Sum + (Store[j].Price);
-      printf("Price of App n°%d : %.2f\n",j,Store[j].Price); // Only for DEBUG
+      // printf("Price of App n°%d : %.2f\n",j,Store[j].Price); // Only for DEBUG
     }
 
     Average = Sum/i;
@@ -698,135 +789,97 @@ void average(APPtype *Store,int Selected, int i)
   printf("End of Average function\n"); // Only For DEBUG
 }
 
-
-void Correct_Current_Ver(APPtxt *Raw_Store,int i)
-{
-  printf("Start of Correct_Current_Ver function\n"); // Only for DEBUG
-
-  for (int j=1;j<i;j++) // Treat all the structs
-  {
-    if (((strcmp("Varies_with_device",Raw_Store[j].Current_Ver))==0) || (strcmp("NaN",Raw_Store[j].Current_Ver))==0) // If the member contain "Varies_with_device" or "NaN" we change it and force it to 0.
-    {
-      strcpy(Raw_Store[j].Current_Ver,"0"); // We remplace the current values with 0
-      printf("Current_Ver of App n°%d is forced to : %s\n",j,Raw_Store[j].Current_Ver); // Only for DEBUG
-
-    }
-    else
-    printf("Current_Ver of App n°%d is : %s\n",j,Raw_Store[j].Current_Ver); // Only for DEBUG
-  }
-  printf("End of Correct_Current_Ver function\n"); // Only for DEBUG
-}
-
-// void Correct_Rating(APP *Store,int i)
+// char *Paramete_Of_Name()
 // {
-//   printf("Start of Correct_Rating function\n"); // Only for DEBUG
-//
-//   for (int j=1;j<i;j++) // Treat all the structs
-//   {
-//     if (strcmp("NaN",Store[j].Rating)==0) // If the member contain "Varies_with_device" or "NaN" we change it and force it to 0.
-//     {
-//       Store[j].Current_Ver = 0.0; // We remplace the current values with 0
-//       printf("Rating of App n°%d is forced to : %.2f\n",j,Store[j].Rating); // Only for DEBUG
-//
-//     }
-//     else
-//       printf("Rating of App n°%d is : %.2f\n",j,Store[j].Rating); // Only for DEBUG
-//   }
-//   printf("End of Correct_Rating function\n"); // Only for DEBUG
+//   static char SearchParameter[50];
+//   printf("Entrer un parametre de recherche (Nom d'une App): \n");
+//   scanf("%s\n",SearchParameter);
+//   return SearchParameter;
 // }
-
-
-char *Paramete_Of_Name()
-{
-  static char SearchParameter[50];
-  printf("Entrer un parametre de recherche (Nom d'une App): \n");
-  scanf("%s\n",SearchParameter);
-  return SearchParameter;
-}
-char *Paramete_Of_Category()
-{
-  static char SearchParameter[50];
-  printf("Entrer un parametre de recherche (Nom d'une Category): \n");
-  scanf("%s\n",SearchParameter);
-  return SearchParameter;
-}
-int Paramete_Of_Rating()
-{
-  int SearchParameter;
-  printf("Entrer un parametre de recherche (Note): \n");
-  scanf("%d\n",&SearchParameter);
-  return SearchParameter;
-}
-int Paramete_Of_Reviews()
-{
-  int SearchParameter;
-  printf("Entrer un parametre de recherche (Nb de Reviews): \n");
-  scanf("%d\n",&SearchParameter);
-  return SearchParameter;
-}
-char *Paramete_Of_Size()
-{
-  static char SearchParameter[50];
-  printf("Entrer un parametre de recherche (Taille de l'App): \n");
-  scanf("%s\n",SearchParameter);
-  return SearchParameter;
-}
-int Paramete_Of_Installs()
-{
-  int SearchParameter;
-  printf("Entrer un parametre de recherche (Nb d'Installs): \n");
-  scanf("%d\n",&SearchParameter);
-  return SearchParameter;
-}
-char *Paramete_Of_Type()
-{
-  static char SearchParameter[50];
-  printf("Entrer un parametre de recherche (Type d'App): \n");
-  scanf("%s\n",SearchParameter);
-  return SearchParameter;
-}
-char *Paramete_Of_Price()
-{
-  static char SearchParameter[50];
-  printf("Entrer un parametre de recherche (Prix de l'App): \n");
-  scanf("%s\n",SearchParameter);
-  return SearchParameter;
-}
-char *Paramete_Of_Content_Rating()
-{
-  static char SearchParameter[50];
-  printf("Entrer un parametre de recherche (Content_Rating): \n");
-  scanf("%s\n",SearchParameter);
-  return SearchParameter;
-}
-char *Paramete_Of_Genres()
-{
-  static char SearchParameter[50];
-  printf("Entrer un parametre de recherche (Genres de l'App): \n");
-  scanf("%s\n",SearchParameter);
-  return SearchParameter;
-}
-char *Paramete_Of_Last_Updated()
-{
-  static char SearchParameter[50];
-  printf("Entrer un parametre de recherche (Last_Updated de l'App): \n");
-  scanf("%s\n",SearchParameter);
-  return SearchParameter;
-}
-char *Paramete_Of_Current_Ver()
-{
-  static char SearchParameter[50];
-  printf("Entrer un parametre de recherche (Current_Ver de l'App): \n");
-  scanf("%s\n",SearchParameter);
-  return SearchParameter;
-}
-char *Paramete_Of_Android_Ver()
-{
-  static char SearchParameter[50];
-  printf("Entrer un parametre de recherche (Android_Ver de l'App): \n");
-  scanf("%s\n",SearchParameter);
-  return SearchParameter;
-}
+// char *Paramete_Of_Category()
+// {
+//   static char SearchParameter[50];
+//   printf("Entrer un parametre de recherche (Nom d'une Category): \n");
+//   scanf("%s\n",SearchParameter);
+//   return SearchParameter;
+// }
+// int Paramete_Of_Rating()
+// {
+//   int SearchParameter;
+//   printf("Entrer un parametre de recherche (Note): \n");
+//   scanf("%d\n",&SearchParameter);
+//   return SearchParameter;
+// }
+// int Paramete_Of_Reviews()
+// {
+//   int SearchParameter;
+//   printf("Entrer un parametre de recherche (Nb de Reviews): \n");
+//   scanf("%d\n",&SearchParameter);
+//   return SearchParameter;
+// }
+// char *Paramete_Of_Size()
+// {
+//   static char SearchParameter[50];
+//   printf("Entrer un parametre de recherche (Taille de l'App): \n");
+//   scanf("%s\n",SearchParameter);
+//   return SearchParameter;
+// }
+// int Paramete_Of_Installs()
+// {
+//   int SearchParameter;
+//   printf("Entrer un parametre de recherche (Nb d'Installs): \n");
+//   scanf("%d\n",&SearchParameter);
+//   return SearchParameter;
+// }
+// char *Paramete_Of_Type()
+// {
+//   static char SearchParameter[50];
+//   printf("Entrer un parametre de recherche (Type d'App): \n");
+//   scanf("%s\n",SearchParameter);
+//   return SearchParameter;
+// }
+// char *Paramete_Of_Price()
+// {
+//   static char SearchParameter[50];
+//   printf("Entrer un parametre de recherche (Prix de l'App): \n");
+//   scanf("%s\n",SearchParameter);
+//   return SearchParameter;
+// }
+// char *Paramete_Of_Content_Rating()
+// {
+//   static char SearchParameter[50];
+//   printf("Entrer un parametre de recherche (Content_Rating): \n");
+//   scanf("%s\n",SearchParameter);
+//   return SearchParameter;
+// }
+// char *Paramete_Of_Genres()
+// {
+//   static char SearchParameter[50];
+//   printf("Entrer un parametre de recherche (Genres de l'App): \n");
+//   scanf("%s\n",SearchParameter);
+//   return SearchParameter;
+// }
+// char *Paramete_Of_Last_Updated()
+// {
+//   static char SearchParameter[50];
+//   printf("Entrer un parametre de recherche (Last_Updated de l'App): \n");
+//   scanf("%s\n",SearchParameter);
+//   return SearchParameter;
+// }
+// char *Paramete_Of_Current_Ver()
+// {
+//   static char SearchParameter[50];
+//   printf("Entrer un parametre de recherche (Current_Ver de l'App): \n");
+//   scanf("%s\n",SearchParameter);
+//   return SearchParameter;
+// }
+// char *Paramete_Of_Android_Ver()
+// {
+//   static char SearchParameter[50];
+//   printf("Entrer un parametre de recherche (Android_Ver de l'App): \n");
+//   scanf("%s\n",SearchParameter);
+//   return SearchParameter;
+// }
 
 void menu(FILE* fic)
 {
@@ -861,12 +914,17 @@ void menu(FILE* fic)
       break;
 
       case 2:
-      *StrSelect = choose(&choix);
+      //*StrSelect = choose(&choix);
+      printf("\n*** Erreur 404 ***\n");
       break;
 
       case 3:
       *StrSelect = choose(&choix);
       average(New_Store,choix,NbStructs);
+      break;
+
+      case 4:
+      printf("\n*** Erreur 404 ***\n");
       break;
 
       case 5:
@@ -882,7 +940,7 @@ void menu(FILE* fic)
       printf("Erreur de saisie\n");
       break;
     }
-  }while(Selected != 5);
+  }while(Selected != 6);
 }
 
 
@@ -893,28 +951,28 @@ void Correct_Member(APPtxt *Raw_Store,int i)
   for (int j=1;j<i;j++) // Treat all the structs
   {
 
-    printf("\n\n***** APP n°%d *****\n\n",j);
+    //printf("\n\n***** APP n°%d *****\n\n",j);
 
     if (strcmp(Raw_Store[j].Rating,"NaN") == 0)
     {
       strcpy(Raw_Store[j].Rating,"0"); // We remplace the current values with 0
-      printf("Rating of App n°%d is forced to : %s\n",j,Raw_Store[j].Rating); // Only for DEBUG
+      //printf("Rating of App n°%d is forced to : %s\n",j,Raw_Store[j].Rating); // Only for DEBUG
     }
     else if (strcmp(Raw_Store[j].Rating,"NaN") != 0)
     {
-      printf("Rating of App n°%d is : %s\n",j,Raw_Store[j].Rating); // Only for DEBUG
+      // printf("Rating of App n°%d is : %s\n",j,Raw_Store[j].Rating); // Only for DEBUG
     }
 
 
     if (strcmp(Raw_Store[j].Size,"Varies_with_device") == 0)
     {
       strcpy(Raw_Store[j].Size,"0"); // We remplace the current values with 0
-      printf("Size of App n°%d is forced to : %s\n",j,Raw_Store[j].Size); // Only for DEBUG
+      // printf("Size of App n°%d is forced to : %s\n",j,Raw_Store[j].Size); // Only for DEBUG
     }
 
     else if (strcmp(Raw_Store[j].Size,"Varies_with_device") != 0)
     {
-      printf("Size of App n°%d is : %s\n",j,Raw_Store[j].Size); // Only for DEBUG
+      // printf("Size of App n°%d is : %s\n",j,Raw_Store[j].Size); // Only for DEBUG
     }
 
     char Size[20]; // variable de transfere
@@ -963,35 +1021,35 @@ void Correct_Member(APPtxt *Raw_Store,int i)
         //printf("%c\n",Price[c]); // Only for DEBUG
       }
       strcpy(Raw_Store[j].Price,Price);
-      printf("Price of App n°%d is forced to : %s\n",j,Raw_Store[j].Price); // Only for DEBUG
+      // printf("Price of App n°%d is forced to : %s\n",j,Raw_Store[j].Price); // Only for DEBUG
     }
     else if (strcmp(Raw_Store[j].Price,"0") == 0)
     {
-      printf("Price of App n°%d is : %s\n",j,Raw_Store[j].Price); // Only for DEBUG
+      // printf("Price of App n°%d is : %s\n",j,Raw_Store[j].Price); // Only for DEBUG
     }
 
 
     if ((strcmp(Raw_Store[j].Current_Ver,"Varies_with_device") == 0 )||(strcmp(Raw_Store[j].Current_Ver,"NaN") == 0))
     {
       strcpy(Raw_Store[j].Current_Ver,"0"); // We remplace the current values with 0
-      printf("Current_Ver of App n°%d is forced to : %s\n",j,Raw_Store[j].Size); // Only for DEBUG
+      // printf("Current_Ver of App n°%d is forced to : %s\n",j,Raw_Store[j].Size); // Only for DEBUG
     }
 
     else if ((strcmp(Raw_Store[j].Current_Ver,"Varies_with_device") != 0 )||(strcmp(Raw_Store[j].Current_Ver,"NaN") != 0))
     {
-      printf("Current_Ver of App n°%d is : %s\n",j,Raw_Store[j].Current_Ver); // Only for DEBUG
+      // printf("Current_Ver of App n°%d is : %s\n",j,Raw_Store[j].Current_Ver); // Only for DEBUG
     }
 
 
     if (strcmp(Raw_Store[j].Android_Ver,"Varies_with_device\n") == 0) // If the member of the struct is "Varies_with_device"
     {
       strcpy(Raw_Store[j].Android_Ver,"0"); // We remplace the current values with 0
-      printf("Android_Ver of App n°%d is forced to : %s\n",j,Raw_Store[j].Android_Ver); // Only for DEBUG
+      // printf("Android_Ver of App n°%d is forced to : %s\n",j,Raw_Store[j].Android_Ver); // Only for DEBUG
     }
 
     else if (strcmp(Raw_Store[j].Android_Ver,"Varies_with_device") != 0) // Else we don't change.
     {
-      printf("Android_Ver of App n°%d is : %s\n",j,Raw_Store[j].Android_Ver); // Only for DEBUG
+      // printf("Android_Ver of App n°%d is : %s\n",j,Raw_Store[j].Android_Ver); // Only for DEBUG
     }
 
   }

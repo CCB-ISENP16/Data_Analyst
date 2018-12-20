@@ -58,21 +58,19 @@ void Txt_to_Struc(FILE* fic, int *i, APPtxt *Store); // Read the .txt file in or
 void RawStructToTypeStruct(APPtxt *Raw_Store, APPtype *New_Store,int NbStructs);
 int nbdeligne(FILE* fic); // count the number of ligne and so the numbre of App
 void printStore(APPtype *Store,int i); // Print all the App
-//void Correct_Current_Ver(APPtxt *Store,int i);
-//void Correct_Rating(APPtxt *Store,int i);
 void Correct_Member(APPtxt *Raw_Store,int i);
 void menu(FILE* fic);
 
-char *Paramete_Of_Name();
-char *Paramete_Of_Category();
-int Paramete_Of_Rating();
-int Paramete_Of_Reviews();
-char *Paramete_Of_Size();
-int Paramete_Of_Installs();
-char *Paramete_Of_Type();
-char *Paramete_Of_Price();
-char *Paramete_Of_Content_Rating();
-char *Paramete_Of_Genres();
-char *Paramete_Of_Last_Updated();
-char *Paramete_Of_Current_Ver();
-char *Paramete_Of_Android_Ver();
+// char *Paramete_Of_Name();
+// char *Paramete_Of_Category();
+// int Paramete_Of_Rating();
+// int Paramete_Of_Reviews();
+// char *Paramete_Of_Size();
+// int Paramete_Of_Installs();
+// char *Paramete_Of_Type();
+// char *Paramete_Of_Price();
+// char *Paramete_Of_Content_Rating();
+// char *Paramete_Of_Genres();
+// char *Paramete_Of_Last_Updated();
+// char *Paramete_Of_Current_Ver();
+// char *Paramete_Of_Android_Ver();
