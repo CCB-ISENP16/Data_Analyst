@@ -1,16 +1,15 @@
 #include "../inc/function.h"
 
-//fonction d ouverture du fichier
-void fp_OuvertureFichier(FILE** fp)
+void fp_OuvertureFichier(FILE** fp) // Open the .txt file
 {
   fprintf(stdout,"fp_OuvertureFichier: Begin\n");
 
-  *fp=fopen("data/data.txt","r+"); // open in read+ (Open for reading and writing)
+  *fp=fopen("data/googleplaystore.txt","r+"); // open in read+ (Open for reading and writing)
   if(*fp==NULL)
   {
     fprintf(stdout,"Erreur ouverture fichier r+\n"); // if the opening in r+ failed
 
-    *fp=fopen("data/data.txt","w+"); // open the file in w+ in order to create it if it does not exist WARNING in this mode the cursor is placed at the end of the file.
+    *fp=fopen("data/googleplaystore.txt","w+"); // open the file in w+ in order to create it if it does not exist WARNING in this mode the cursor is placed at the end of the file.
     if(*fp==NULL)
     {
       fprintf(stdout,"Erreur ouverture fichier w+. Sortie du programme\n"); // if the opening fail again we stop the programme
@@ -20,7 +19,7 @@ void fp_OuvertureFichier(FILE** fp)
   fprintf(stdout,"fp_OuvertureFichier: End\n\n");
 }
 
-void partof(APPtype *New_Store,int choix,int NbStructs)
+void partof(APPtype *New_Store,int choix,int NbStructs) // Calcul the % of something
 {
   printf("Start of partof function\n");
 
@@ -373,39 +372,39 @@ Rating_Of_MAPS_AND_NAVIGATION = ((MAPS_AND_NAVIGATION/(NbStructs-1.0))*100.0); /
 
 
 printf("\n\n*** RESULTS ***\n\n");
-printf("Rating of ART_AND_DESIGN app 🎨 : %.2f \n",Rating_Of_ART_AND_DESIGN); // Print the results
-printf("Rating of AUTO_AND_VEHICLES app 🚗 : %.2f \n",Rating_Of_AUTO_AND_VEHICLES);
-printf("Rating of BEAUTY app 💄 : %.2f \n",Rating_Of_BEAUTY);
-printf("Rating of BOOKS_AND_REFERENCE app 📕 : %.2f \n",Rating_Of_BOOKS_AND_REFERENCE);
-printf("Rating of BUSINESS app 💸 : %.2f \n",Rating_Of_BUSINESS);
-printf("Rating of COMICS app : 💬 %.2f \n",Rating_Of_COMICS);
-printf("Rating of COMMUNICATION app 🗣 : %.2f \n",Rating_Of_COMMUNICATION);
-printf("Rating of DATING app 💑  : %.2f \n",Rating_Of_DATING);
-printf("Rating of EDUCATION app 👨 : %.2f \n",Rating_Of_EDUCATION);
-printf("Rating of ENTERTAINMENT app ⚽️ : %.2f \n",Rating_Of_ENTERTAINMENT);
-printf("Rating of EVENTS app : 📆 %.2f \n",Rating_Of_EVENTS);
-printf("Rating of FINANCE app  📈 : %.2f \n",Rating_Of_FINANCE);
-printf("Rating of FOOD_AND_DRINK app 🍔 : %.2f \n",Rating_Of_FOOD_AND_DRINK);
-printf("Rating of HEALTH_AND_FITNESS app 🍎 : %.2f \n",Rating_Of_HEALTH_AND_FITNESS);
-printf("Rating of HOUSE_AND_HOME app 🏠 : %.2f \n",Rating_Of_HOUSE_AND_HOME);
-printf("Rating of LIBRARIES_AND_DEMO app 📗 : %.2f \n",Rating_Of_LIBRARIES_AND_DEMO);
-printf("Rating of LIFESTYLE app : %.2f \n",Rating_Of_LIFESTYLE);
-printf("Rating of GAME app 📺 : %.2f \n",Rating_Of_GAME);
-printf("Rating of FAMILY app : %.2f \n",Rating_Of_FAMILY);
-printf("Rating of MEDICAL app 🏥 : %.2f \n",Rating_Of_MEDICAL);
-printf("Rating of SOCIAL app 👬 : %.2f \n",Rating_Of_SOCIAL);
-printf("Rating of SHOPPING app 🛒 : %.2f \n",Rating_Of_SHOPPING);
-printf("Rating of PHOTOGRAPHY app  📷  : %.2f \n",Rating_Of_PHOTOGRAPHY);
-printf("Rating of SPORTS app 🏀 : %.2f \n",Rating_Of_SPORTS);
-printf("Rating of TRAVEL_AND_LOCAL app ✈️ : %.2f \n",Rating_Of_TRAVEL_AND_LOCAL);
-printf("Rating of TOOLS app 🔨 : %.2f \n",Rating_Of_TOOLS);
-printf("Rating of PERSONALIZATION app ✏️ : %.2f \n",Rating_Of_PERSONALIZATION);
-printf("Rating of PRODUCTIVITY app 📋 : %.2f \n",Rating_Of_PRODUCTIVITY);
-printf("Rating of PARENTING app : %.2f \n",Rating_Of_PARENTING);
-printf("Rating of WEATHER app ⛅️ : %.2f \n",Rating_Of_WEATHER);
-printf("Rating of VIDEO_PLAYERS app 🎞 : %.2f \n",Rating_Of_VIDEO_PLAYERS);
-printf("Rating of NEWS_AND_MAGAZINES app 📰 : %.2f \n",Rating_Of_NEWS_AND_MAGAZINES);
-printf("Rating of MAPS_AND_NAVIGATION app 🧭 : %.2f \n",Rating_Of_MAPS_AND_NAVIGATION); // Print the results
+printf("\rRating of ART_AND_DESIGN app 🎨 :             \t\t%.2f\n",Rating_Of_ART_AND_DESIGN); // Print the results
+printf("\rRating of AUTO_AND_VEHICLES app 🚗 :          \t\t%.2f\n",Rating_Of_AUTO_AND_VEHICLES);
+printf("\rRating of BEAUTY app 💄 :                     \t\t%.2f\n",Rating_Of_BEAUTY);
+printf("\rRating of BOOKS_AND_REFERENCE app 📕 :        \t\t%.2f\n",Rating_Of_BOOKS_AND_REFERENCE);
+printf("\rRating of BUSINESS app 💸 :                   \t\t%.2f\n",Rating_Of_BUSINESS);
+printf("\rRating of COMICS app 💬 :                     \t\t%.2f\n",Rating_Of_COMICS);
+printf("\rRating of COMMUNICATION app 🗣 :              \t\t%.2f\n",Rating_Of_COMMUNICATION);
+printf("\rRating of DATING app 💑 :                    \t\t%.2f\n",Rating_Of_DATING);
+printf("\rRating of EDUCATION app 👨 :                  \t\t%.2f\n",Rating_Of_EDUCATION);
+printf("\rRating of ENTERTAINMENT app ⚽️ :              \t\t%.2f\n",Rating_Of_ENTERTAINMENT);
+printf("\rRating of EVENTS app 📆 :                     \t\t%.2f\n",Rating_Of_EVENTS);
+printf("\rRating of FINANCE app 📈 :                    \t\t%.2f\n",Rating_Of_FINANCE);
+printf("\rRating of FOOD_AND_DRINK app 🍔 :             \t\t%.2f\n",Rating_Of_FOOD_AND_DRINK);
+printf("\rRating of HEALTH_AND_FITNESS app 🍎 :         \t\t%.2f\n",Rating_Of_HEALTH_AND_FITNESS);
+printf("\rRating of HOUSE_AND_HOME app 🏠 :             \t\t%.2f\n",Rating_Of_HOUSE_AND_HOME);
+printf("\rRating of LIBRARIES_AND_DEMO app 📗 :         \t\t%.2f\n",Rating_Of_LIBRARIES_AND_DEMO);
+printf("\rRating of LIFESTYLE app :                     \t\t%.2f\n",Rating_Of_LIFESTYLE);
+printf("\rRating of GAME app 📺 :                       \t\t%.2f\n",Rating_Of_GAME);
+printf("\rRating of FAMILY app :                        \t\t%.2f\n",Rating_Of_FAMILY);
+printf("\rRating of MEDICAL app 🏥 :                    \t\t%.2f\n",Rating_Of_MEDICAL);
+printf("\rRating of SOCIAL app 👬 :                     \t\t%.2f\n",Rating_Of_SOCIAL);
+printf("\rRating of SHOPPING app 🛒 :                   \t\t%.2f\n",Rating_Of_SHOPPING);
+printf("\rRating of PHOTOGRAPHY app  📷  :              \t\t%.2f\n",Rating_Of_PHOTOGRAPHY);
+printf("\rRating of SPORTS app 🏀 :                     \t\t%.2f\n",Rating_Of_SPORTS);
+printf("\rRating of TRAVEL_AND_LOCAL app ✈️ :           \t\t%.2f\n",Rating_Of_TRAVEL_AND_LOCAL);
+printf("\rRating of TOOLS app 🔨 :                      \t\t%.2f\n",Rating_Of_TOOLS);
+printf("\rRating of PERSONALIZATION app ✏️ :            \t\t%.2f\n",Rating_Of_PERSONALIZATION);
+printf("\rRating of PRODUCTIVITY app 📋 :               \t\t%.2f\n",Rating_Of_PRODUCTIVITY);
+printf("\rRating of PARENTING app :                     \t\t%.2f\n",Rating_Of_PARENTING);
+printf("\rRating of WEATHER app ⛅️ :                    \t\t%.2f\n",Rating_Of_WEATHER);
+printf("\rRating of VIDEO_PLAYERS app 🎞 :              \t\t%.2f\n",Rating_Of_VIDEO_PLAYERS);
+printf("\rRating of NEWS_AND_MAGAZINES app 📰 :         \t\t%.2f\n",Rating_Of_NEWS_AND_MAGAZINES);
+printf("\rRating of MAPS_AND_NAVIGATION app 🧭 :        \t\t%.2f\n",Rating_Of_MAPS_AND_NAVIGATION); // Print the results
 
 printf("\n***********************\n\n");
 
@@ -560,7 +559,7 @@ for (int j=1;j<NbStructs;j++)
     printf("Everyone_10 : %.0f\n",Everyone_10); //Only for DEBUG
   }
 
-  if(strcmp(New_Store[j].Content_Rating,"Mature_17_+") == 0)
+  if(strcmp(New_Store[j].Content_Rating,"Mature_17+") == 0)
   {
     Mature_17=Mature_17+1;
     printf("Mature_17 : %.0f\n",Mature_17); //Only for DEBUG
@@ -608,7 +607,7 @@ break;
 printf("End of partof function\n");
 }
 
-char *choose (int *Selected)
+char *choose (int *Selected) // Ask a to choose an number between 1-13
 {
   static char StrSelect[50];
   do{
@@ -718,7 +717,7 @@ char *choose (int *Selected)
   }while (*Selected == -1);
 }
 
-void Txt_to_Struc(FILE* fic, int *i, APPtxt *Store)
+void Txt_to_Struc(FILE* fic, int *i, APPtxt *Store) // Copy all the .txt file into a RawStruct (Only char)
 {
   char LineBuffer[TAILLE];
   const char s[2] = ",";
@@ -777,9 +776,11 @@ void Txt_to_Struc(FILE* fic, int *i, APPtxt *Store)
   printf("End of creerUneStructure function\n\n"); //Only for DEBUG
 }
 
-void RawStructToTypeStruct(APPtxt *Raw_Store, APPtype *New_Store,int NbStructs)
+void RawStructToTypeStruct(APPtxt *Raw_Store, APPtype *New_Store,int NbStructs) // Copy the RawStruct(Only char) To a TypeStruct(char or float)
 {
-  for (int j=1;j<NbStructs;j++)
+  printf("Start of RawStructToTypeStruct function\n");
+
+  for (int j=0;j<NbStructs;j++)
   {
     strcpy(New_Store[j].Name,Raw_Store[j].Name);
     strcpy(New_Store[j].Category,Raw_Store[j].Category);
@@ -790,17 +791,22 @@ void RawStructToTypeStruct(APPtxt *Raw_Store, APPtype *New_Store,int NbStructs)
     New_Store[j].Installs = atof(Raw_Store[j].Installs);
 
     strcpy(New_Store[j].Type,Raw_Store[j].Type);
+
     New_Store[j].Price = atof(Raw_Store[j].Price);
+
     strcpy(New_Store[j].Content_Rating,Raw_Store[j].Content_Rating);
     strcpy(New_Store[j].Genres,Raw_Store[j].Genres);
     strcpy(New_Store[j].Last_Updated,Raw_Store[j].Last_Updated);
 
-    New_Store[j].Current_Ver = atof(Raw_Store[j].Current_Ver);
+    strcpy(New_Store[j].Current_Ver,Raw_Store[j].Current_Ver);
+
     New_Store[j].Android_Ver = atof(Raw_Store[j].Android_Ver);
   }
+
+  printf("Start of RawStructToTypeStruct function\n");
 }
 
-int nbdeligne(FILE* fic)
+int nbdeligne(FILE* fic) // Count the number of ligne of the .txt file
 {
   int i=0;
   char LineBuffer[TAILLE];
@@ -812,7 +818,7 @@ int nbdeligne(FILE* fic)
   return i;
 };
 
-void printStore(APPtype *Store,int i)
+void printStore(APPtype *Store,int i) // Print all the PlayStore
 {
   printf("Start of printStore function\n");
 
@@ -831,7 +837,7 @@ void printStore(APPtype *Store,int i)
     printf("\rContent_Rating of App :  \t\t%s\n",Store[j].Content_Rating);
     printf("\rGenres of App :          \t\t%s\n",Store[j].Genres);
     printf("\rLast_Updated of App :    \t\t%s\n",Store[j].Last_Updated);
-    printf("\rCurrent_Ver of App :     \t\t%.2f\n",Store[j].Current_Ver);
+    printf("\rCurrent_Ver of App :     \t\t%s\n",Store[j].Current_Ver);
     printf("\rAndroid_Ver of App :     \t\t%.2f\n",Store[j].Android_Ver);
 
     //printf("************************\n");
@@ -1084,7 +1090,7 @@ void filter (APPtxt *Store,int Selected,int j)
   //   };
 }
 
-void average(APPtype *Store,int Selected, int i)
+void average(APPtype *Store,int Selected, int i) //Calcul the average of something
 {
   printf("Start of Average function\n"); // Only For DEBUG
 
@@ -1162,13 +1168,14 @@ void average(APPtype *Store,int Selected, int i)
   printf("End of Average function\n"); // Only For DEBUG
 }
 
-void menu(FILE* fic)
+void menu(FILE* fic) // print the menu
 {
-
   int Selected = 0,NbStructs = 0,choix = 0;
-  APPtype New_Store[200];
-  APPtxt Raw_Store[200];
+  APPtype New_Store[10850];
+  APPtxt Raw_Store[10850];
   char *StrSelect[50];
+
+  printf("\n\n🤶🎅 Menu Principal 🎅🤶\n\n");
 
   Txt_to_Struc(fic,&NbStructs,Raw_Store);
   Correct_Member(Raw_Store,NbStructs);
@@ -1224,7 +1231,7 @@ void menu(FILE* fic)
   }while(Selected != 6);
 }
 
-void Correct_Member(APPtxt *Raw_Store,int i)
+void Correct_Member(APPtxt *Raw_Store,int i) // correct the member of the struct in order to make easier the futur treatment
 {
   printf("Start of Correct_Member function\n"); // Only for DEBUG
 
@@ -1255,11 +1262,11 @@ void Correct_Member(APPtxt *Raw_Store,int i)
       // printf("Size of App n°%d is : %s\n",j,Raw_Store[j].Size); // Only for DEBUG
     }
 
-    char Size[20]; // variable de transfere
+    char Size[50]; // variable de transfere
 
     strcpy(Size,Raw_Store[j].Size); // Copy the string of the struct into the variable de transfere
 
-    for (int c=0;c<20;c++) // treat all the array
+    for (int c=0;c<50;c++) // treat all the array
     {
       if(Size[c] == 'M') // if a 'M' is detect, we replace it with 6 '0' for Mega
       {
@@ -1332,19 +1339,19 @@ void Correct_Member(APPtxt *Raw_Store,int i)
       // printf("Android_Ver of App n°%d is : %s\n",j,Raw_Store[j].Android_Ver); // Only for DEBUG
     }
 
-    char Android_Ver[20]; // variable de transfere
+    char Android_Ver[50]; // variable de transfere
     strcpy(Android_Ver,Raw_Store[j].Android_Ver); // Copy the string of the struct into the variable de transfere
 
-    for (int c =0;c<20;c++)
+    for (int c =0;c<50;c++)
     {
       if(Android_Ver[c] == '_') // if a '_' is detect, we replace it with \0 in order to trim the array
-       {
-         Android_Ver[c] = '\0';
-       }
+      {
+        Android_Ver[c] = '\0';
+      }
     }
     strcpy(Raw_Store[j].Android_Ver,Android_Ver); // Copy the variable de transfere into the struct
 
-    printf("%s\n",Raw_Store[j].Android_Ver);
+    //printf("%s\n",Raw_Store[j].Android_Ver);
   }
   printf("End of Correct_Member function\n"); // Only for DEBUG
 }

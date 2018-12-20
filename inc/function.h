@@ -19,15 +19,15 @@ typedef struct apptxt
   char Category[50];
   char Rating[50];
   char Reviews[50];
-  char Size[20];
-  char Installs[20];
+  char Size[50];
+  char Installs[50];
   char Type[50];
-  char Price[10];
+  char Price[50];
   char Content_Rating[50];
   char Genres[50];
-  char Last_Updated[20];
-  char Current_Ver[20];
-  char Android_Ver[20];
+  char Last_Updated[50];
+  char Current_Ver[50];
+  char Android_Ver[50];
 } APPtxt;
 
 typedef struct apptype
@@ -42,8 +42,8 @@ typedef struct apptype
   float Price;
   char Content_Rating[50];
   char Genres[50];
-  char Last_Updated[20];
-  float Current_Ver;
+  char Last_Updated[50];
+  char Current_Ver[50];
   float Android_Ver;
 } APPtype;
 
