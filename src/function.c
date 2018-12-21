@@ -372,39 +372,39 @@ Rating_Of_MAPS_AND_NAVIGATION = ((MAPS_AND_NAVIGATION/(NbStructs-1.0))*100.0); /
 
 
 printf("\n\n*** RESULTS ***\n\n");
-printf("\rRating of ART_AND_DESIGN app 🎨 :             \t\t%.2f\n",Rating_Of_ART_AND_DESIGN); // Print the results
-printf("\rRating of AUTO_AND_VEHICLES app 🚗 :          \t\t%.2f\n",Rating_Of_AUTO_AND_VEHICLES);
-printf("\rRating of BEAUTY app 💄 :                     \t\t%.2f\n",Rating_Of_BEAUTY);
-printf("\rRating of BOOKS_AND_REFERENCE app 📕 :        \t\t%.2f\n",Rating_Of_BOOKS_AND_REFERENCE);
-printf("\rRating of BUSINESS app 💸 :                   \t\t%.2f\n",Rating_Of_BUSINESS);
-printf("\rRating of COMICS app 💬 :                     \t\t%.2f\n",Rating_Of_COMICS);
-printf("\rRating of COMMUNICATION app 🗣 :              \t\t%.2f\n",Rating_Of_COMMUNICATION);
-printf("\rRating of DATING app 💑 :                    \t\t%.2f\n",Rating_Of_DATING);
-printf("\rRating of EDUCATION app 👨 :                  \t\t%.2f\n",Rating_Of_EDUCATION);
-printf("\rRating of ENTERTAINMENT app ⚽️ :              \t\t%.2f\n",Rating_Of_ENTERTAINMENT);
-printf("\rRating of EVENTS app 📆 :                     \t\t%.2f\n",Rating_Of_EVENTS);
-printf("\rRating of FINANCE app 📈 :                    \t\t%.2f\n",Rating_Of_FINANCE);
-printf("\rRating of FOOD_AND_DRINK app 🍔 :             \t\t%.2f\n",Rating_Of_FOOD_AND_DRINK);
-printf("\rRating of HEALTH_AND_FITNESS app 🍎 :         \t\t%.2f\n",Rating_Of_HEALTH_AND_FITNESS);
-printf("\rRating of HOUSE_AND_HOME app 🏠 :             \t\t%.2f\n",Rating_Of_HOUSE_AND_HOME);
-printf("\rRating of LIBRARIES_AND_DEMO app 📗 :         \t\t%.2f\n",Rating_Of_LIBRARIES_AND_DEMO);
-printf("\rRating of LIFESTYLE app :                     \t\t%.2f\n",Rating_Of_LIFESTYLE);
-printf("\rRating of GAME app 📺 :                       \t\t%.2f\n",Rating_Of_GAME);
-printf("\rRating of FAMILY app :                        \t\t%.2f\n",Rating_Of_FAMILY);
-printf("\rRating of MEDICAL app 🏥 :                    \t\t%.2f\n",Rating_Of_MEDICAL);
-printf("\rRating of SOCIAL app 👬 :                     \t\t%.2f\n",Rating_Of_SOCIAL);
-printf("\rRating of SHOPPING app 🛒 :                   \t\t%.2f\n",Rating_Of_SHOPPING);
-printf("\rRating of PHOTOGRAPHY app  📷  :              \t\t%.2f\n",Rating_Of_PHOTOGRAPHY);
-printf("\rRating of SPORTS app 🏀 :                     \t\t%.2f\n",Rating_Of_SPORTS);
-printf("\rRating of TRAVEL_AND_LOCAL app ✈️ :           \t\t%.2f\n",Rating_Of_TRAVEL_AND_LOCAL);
-printf("\rRating of TOOLS app 🔨 :                      \t\t%.2f\n",Rating_Of_TOOLS);
-printf("\rRating of PERSONALIZATION app ✏️ :            \t\t%.2f\n",Rating_Of_PERSONALIZATION);
-printf("\rRating of PRODUCTIVITY app 📋 :               \t\t%.2f\n",Rating_Of_PRODUCTIVITY);
-printf("\rRating of PARENTING app :                     \t\t%.2f\n",Rating_Of_PARENTING);
-printf("\rRating of WEATHER app ⛅️ :                    \t\t%.2f\n",Rating_Of_WEATHER);
-printf("\rRating of VIDEO_PLAYERS app 🎞 :              \t\t%.2f\n",Rating_Of_VIDEO_PLAYERS);
-printf("\rRating of NEWS_AND_MAGAZINES app 📰 :         \t\t%.2f\n",Rating_Of_NEWS_AND_MAGAZINES);
-printf("\rRating of MAPS_AND_NAVIGATION app 🧭 :        \t\t%.2f \% \n",Rating_Of_MAPS_AND_NAVIGATION); // Print the results
+printf("\rRating of ART_AND_DESIGN app 🎨 :             \t\t%.2f %c\n",Rating_Of_ART_AND_DESIGN,37); // Print the results
+printf("\rRating of AUTO_AND_VEHICLES app 🚗 :          \t\t%.2f %c\n",Rating_Of_AUTO_AND_VEHICLES,37);
+printf("\rRating of BEAUTY app 💄 :                     \t\t%.2f %c\n",Rating_Of_BEAUTY,37);
+printf("\rRating of BOOKS_AND_REFERENCE app 📕 :        \t\t%.2f %c\n",Rating_Of_BOOKS_AND_REFERENCE,37);
+printf("\rRating of BUSINESS app 💸 :                   \t\t%.2f %c\n",Rating_Of_BUSINESS,37);
+printf("\rRating of COMICS app 💬 :                     \t\t%.2f %c\n",Rating_Of_COMICS,37);
+printf("\rRating of COMMUNICATION app 🗣 :              \t\t%.2f %c\n",Rating_Of_COMMUNICATION,37);
+printf("\rRating of DATING app 💑 :                    \t\t%.2f %c\n",Rating_Of_DATING,37);
+printf("\rRating of EDUCATION app 👨 :                  \t\t%.2f %c\n",Rating_Of_EDUCATION,37);
+printf("\rRating of ENTERTAINMENT app ⚽️ :              \t\t%.2f %c\n",Rating_Of_ENTERTAINMENT,37);
+printf("\rRating of EVENTS app 📆 :                     \t\t%.2f %c\n",Rating_Of_EVENTS,37);
+printf("\rRating of FINANCE app 📈 :                    \t\t%.2f %c\n",Rating_Of_FINANCE,37);
+printf("\rRating of FOOD_AND_DRINK app 🍔 :             \t\t%.2f %c\n",Rating_Of_FOOD_AND_DRINK,37);
+printf("\rRating of HEALTH_AND_FITNESS app 🍎 :         \t\t%.2f %c\n",Rating_Of_HEALTH_AND_FITNESS,37);
+printf("\rRating of HOUSE_AND_HOME app 🏠 :             \t\t%.2f %c\n",Rating_Of_HOUSE_AND_HOME,37);
+printf("\rRating of LIBRARIES_AND_DEMO app 📗 :         \t\t%.2f %c\n",Rating_Of_LIBRARIES_AND_DEMO,37);
+printf("\rRating of LIFESTYLE app :                     \t\t%.2f %c\n",Rating_Of_LIFESTYLE,37);
+printf("\rRating of GAME app 📺 :                       \t\t%.2f %c\n",Rating_Of_GAME,37);
+printf("\rRating of FAMILY app :                        \t\t%.2f %c\n",Rating_Of_FAMILY,37);
+printf("\rRating of MEDICAL app 🏥 :                    \t\t%.2f %c\n",Rating_Of_MEDICAL,37);
+printf("\rRating of SOCIAL app 👬 :                     \t\t%.2f %c\n",Rating_Of_SOCIAL,37);
+printf("\rRating of SHOPPING app 🛒 :                   \t\t%.2f %c\n",Rating_Of_SHOPPING,37);
+printf("\rRating of PHOTOGRAPHY app  📷  :              \t\t%.2f %c\n",Rating_Of_PHOTOGRAPHY,37);
+printf("\rRating of SPORTS app 🏀 :                     \t\t%.2f %c\n",Rating_Of_SPORTS,37);
+printf("\rRating of TRAVEL_AND_LOCAL app ✈️ :           \t\t%.2f %c\n",Rating_Of_TRAVEL_AND_LOCAL,37);
+printf("\rRating of TOOLS app 🔨 :                      \t\t%.2f %c\n",Rating_Of_TOOLS,37);
+printf("\rRating of PERSONALIZATION app ✏️ :            \t\t%.2f %c\n",Rating_Of_PERSONALIZATION,37);
+printf("\rRating of PRODUCTIVITY app 📋 :               \t\t%.2f %c\n",Rating_Of_PRODUCTIVITY,37);
+printf("\rRating of PARENTING app :                     \t\t%.2f %c\n",Rating_Of_PARENTING,37);
+printf("\rRating of WEATHER app ⛅️ :                    \t\t%.2f %c\n",Rating_Of_WEATHER,37);
+printf("\rRating of VIDEO_PLAYERS app 🎞 :              \t\t%.2f %c\n",Rating_Of_VIDEO_PLAYERS,37);
+printf("\rRating of NEWS_AND_MAGAZINES app 📰 :         \t\t%.2f %c\n",Rating_Of_NEWS_AND_MAGAZINES,37);
+printf("\rRating of MAPS_AND_NAVIGATION app 🧭 :        \t\t%.2f %c \n",Rating_Of_MAPS_AND_NAVIGATION,37); // Print the results
 
 printf("\n***********************\n\n");
 
@@ -770,7 +770,7 @@ void Txt_to_Struc(FILE* fic, int *i, APPtxt *Store) // Copy all the .txt file in
     strcpy(Store[*i].Android_Ver,token); // Copy  the token in the correspondant member of the struct
 
     *i = *i+1; // Just a counter in place each member in each struct
-    printf("i : %d\n",*i);
+    //printf("i : %d\n",*i);
     //printf("End of whileloop\n"); // Only for DEBUG
   }
   fseek(fic, 0, SEEK_SET);
@@ -829,12 +829,12 @@ void printStore(APPtype *Store,int i) // Print all the PlayStore
 
     printf("\rName of App :            \t\t%s\n",Store[j].Name);
     printf("\rCategory of App :        \t\t%s\n",Store[j].Category);
-    printf("\rRating of App :          \t\t%.2f\n",Store[j].Rating);
-    printf("\rReviews of App :         \t\t%.2f\n",Store[j].Reviews);
-    printf("\rSize of App :            \t\t%.0f\n",Store[j].Size);
-    printf("\rNb Installs of App :     \t\t%.2f\n",Store[j].Installs);
+    printf("\rRating of App :          \t\t%.1f/5.0\n",Store[j].Rating);
+    printf("\rReviews of App :         \t\t%.0f\n",Store[j].Reviews);
+    printf("\rSize of App :            \t\t%.0f octets\n",Store[j].Size);
+    printf("\rNb Installs of App :     \t\t%.0f\n",Store[j].Installs);
     printf("\rType of App :            \t\t%s\n",Store[j].Type);
-    printf("\rPrice of App :           \t\t%.2f\n",Store[j].Price);
+    printf("\rPrice of App :           \t\t%.2f $\n",Store[j].Price);
     printf("\rContent_Rating of App :  \t\t%s\n",Store[j].Content_Rating);
     printf("\rGenres of App :          \t\t%s\n",Store[j].Genres);
     printf("\rLast_Updated of App :    \t\t%s\n",Store[j].Last_Updated);
@@ -1187,8 +1187,8 @@ void average(APPtype *Store,int Selected, int i) //Calcul the average of somethi
 void menu(FILE* fic) // print the menu
 {
   int Selected = 0,
-      NbStructs = 0,
-      choix = 0;
+  NbStructs = 0,
+  choix = 0;
 
   APPtype *New_Store = NULL;
   APPtxt *Raw_Store = NULL;
@@ -1199,11 +1199,7 @@ void menu(FILE* fic) // print the menu
   New_Store = ResizeStructType(fic);
 
   Txt_to_Struc(fic,&NbStructs,Raw_Store);
-
-  printf("NbStructs : %d\n",NbStructs);
-
   Correct_Member(Raw_Store,NbStructs);
-  printf("NbStructs");
   RawStructToTypeStruct(Raw_Store,New_Store,NbStructs);
 
   do{
@@ -1211,11 +1207,10 @@ void menu(FILE* fic) // print the menu
     printf("\n\n🤶🎅 Menu Principal 🎅🤶\n\n");
 
     printf("1) Afficher le PlayStore\n");
-    printf("2) Recherche Avancée\n");
+    printf("2) Tri croissant en fonction d'un parametre\n");
     printf("3) Calculer une moyenne\n");
-    printf("4) Calculer une esperance\n");
-    printf("5) Calculer un pourcentage\n");
-    printf("6) Quiter le programme\n\n");
+    printf("4) Calculer un pourcentage\n");
+    printf("5) Quiter le programme\n\n");
 
     printf("Votre choix : ");
     scanf("%d",&Selected);
@@ -1227,8 +1222,8 @@ void menu(FILE* fic) // print the menu
       break;
 
       case 2:
-      //*StrSelect = choose(&choix);
-      printf("\n*** Erreur 404 ***\n");
+      Sort_float(New_Store,NbStructs);
+      //printf("\n*** Erreur 404 ***\n");
       break;
 
       case 3:
@@ -1237,23 +1232,19 @@ void menu(FILE* fic) // print the menu
       break;
 
       case 4:
-      printf("\n*** Erreur 404 ***\n");
-      break;
-
-      case 5:
       *StrSelect = choose(&choix);
       partof(New_Store,choix,NbStructs);
       break;
 
-      case 6:
-      printf("\n\n🎉🍾 Joyeuse fete ! 🍾🎉\n");
+      case 5:
+      printf("\n🎉🍾 Joyeuse fete ! 🍾🎉\n\n");
       break;
 
       default :
       printf("Erreur de saisie\n");
       break;
     }
-  }while(Selected != 6);
+  }while(Selected != 5);
 }
 
 void Correct_Member(APPtxt *Raw_Store,int i) // correct the member of the struct in order to make easier the futur treatment
@@ -1393,4 +1384,27 @@ void Correct_Member(APPtxt *Raw_Store,int i) // correct the member of the struct
     //printf("%s\n",Raw_Store[j].Android_Ver);
   }
   printf("End of Correct_Member function\n"); // Only for DEBUG
+}
+
+void Sort_float(APPtype *Store,int NbStructs)
+{
+  APPtype tmp;
+
+  printf("\n *** Veuillez Patienter ***\n");
+  printf("Vous avez le temps de faire un cafe :)\n");
+
+  for(int i=0;i<NbStructs;i++)
+  {
+    for(int j=0;j<(NbStructs-i);j++)
+    {
+      if (Store[j].Rating > Store[j+1].Rating)
+      {
+        tmp=Store[j];
+        Store[j]=Store[j+1];
+        Store[j+1] = tmp;
+      }
+    }
+  }
+
+  printStore(Store,NbStructs);
 }

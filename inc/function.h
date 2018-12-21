@@ -57,6 +57,7 @@ float hopedl (FILE*fic); // Call choose function; Goal : calculate the odds to b
 APPtype* ResizeStructType(FILE*fic);
 APPtxt* ResizeStrucTxt(FILE*fic);
 
+void Sort_float(APPtype *Store,int NbStructs);
 void Txt_to_Struc(FILE* fic, int *i, APPtxt *Store); // Read the .txt file in order to create a struc of it
 void RawStructToTypeStruct(APPtxt *Raw_Store, APPtype *New_Store,int NbStructs);
 int nbdeligne(FILE* fic); // count the number of ligne and so the numbre of App

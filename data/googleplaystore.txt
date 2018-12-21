@@ -10464,7 +10464,7 @@ Tassa.fi_Finland,LIFESTYLE,3.6,346,7.5M,50000,Free,0,Everyone,Lifestyle,May_22_2
 TownWiFi_|_Wi-Fi_Everywhere,COMMUNICATION,3.9,2372,58M,500000,Free,0,Everyone,Communication,August_2_2018,4.2.1,4.2_and_up
 Jazz_Wi-Fi,COMMUNICATION,3.4,49,4.0M,10000,Free,0,Everyone,Communication,February_10_2017,0.1,2.3_and_up
 Xposed_Wi-Fi-Pwd,PERSONALIZATION,3.5,1042,404k,100000,Free,0,Everyone,Personalization,August_5_2014,3.0.0,4.0.3_and_up
-Life_Made_WI-Fi_Touchscreen_Photo_Frame,1.9,19,3.0M,"1,000+",Free,0,Everyone,,"February_11,_2018",1.0.19,4.0_and_up,
+Life_Made_WI-Fi_Touchscreen_Photo_Frame,PERSONALIZATION,1.9,19,3.0M,"1000",Free,0,Everyone,Personalization,"February_11,_2018",1.0.19,4.0_and_up
 osmino_Wi-Fi:_free_WiFi,TOOLS,4.2,134203,4.1M,10000000,Free,0,Everyone,Tools,August_7_2018,6.06.14,4.4_and_up
 Sat-Fi_Voice,COMMUNICATION,3.4,37,14M,1000,Free,0,Everyone,Communication,November_21_2014,2.2.1.5,2.2_and_up
 Wi-Fi_Visualizer,TOOLS,3.9,132,2.6M,50000,Free,0,Everyone,Tools,May_17_2017,0.0.9,2.3_and_up
