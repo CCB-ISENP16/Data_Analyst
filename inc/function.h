@@ -15,44 +15,47 @@ typedef struct date
 
 typedef struct apptxt
 {
-  char Name[50];
-  char Category[50];
-  char Rating[50];
-  char Reviews[50];
-  char Size[50];
-  char Installs[50];
-  char Type[50];
-  char Price[50];
-  char Content_Rating[50];
-  char Genres[50];
-  char Last_Updated[50];
-  char Current_Ver[50];
-  char Android_Ver[50];
+  char Name[500];
+  char Category[500];
+  char Rating[500];
+  char Reviews[500];
+  char Size[500];
+  char Installs[500];
+  char Type[500];
+  char Price[500];
+  char Content_Rating[500];
+  char Genres[500];
+  char Last_Updated[500];
+  char Current_Ver[500];
+  char Android_Ver[500];
 } APPtxt;
 
 typedef struct apptype
 {
-  char Name[50];
-  char Category[50];
+  char Name[500];
+  char Category[500];
   float Rating;
   float Reviews;
   float Size;
   float Installs;
-  char Type[50];
+  char Type[500];
   float Price;
-  char Content_Rating[50];
-  char Genres[50];
-  char Last_Updated[50];
-  char Current_Ver[50];
+  char Content_Rating[500];
+  char Genres[500];
+  char Last_Updated[500];
+  char Current_Ver[500];
   float Android_Ver;
 } APPtype;
 
 void fp_OuvertureFichier(FILE **);
 char *choose (int *Selected); // Goal : choose an attribut CL
-void filter (APPtxt*Store,int Selected,int j);  // Call choose function; sort by an attribut L
+void filter (APPtxt *Store,int Selected,int j);  // Call choose function; sort by an attribut L
 void partof(APPtype *NewStore,int choix,int NbStructs); // Call choose function; Goal : calculate the percentage of the choosen attribut C
 void average(APPtype *Store,int Selected, int i); // Call choose function; Goal : calculate the average. L
 float hopedl (FILE*fic); // Call choose function; Goal : calculate the odds to be download. C
+
+APPtype* ResizeStructType(FILE*fic);
+APPtxt* ResizeStrucTxt(FILE*fic);
 
 void Txt_to_Struc(FILE* fic, int *i, APPtxt *Store); // Read the .txt file in order to create a struc of it
 void RawStructToTypeStruct(APPtxt *Raw_Store, APPtype *New_Store,int NbStructs);

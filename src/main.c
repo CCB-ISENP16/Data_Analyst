@@ -5,13 +5,13 @@ void main(void)
 
   FILE* fic=NULL;
 
-  printf("Start of prog\n");
+  //printf("Start of prog\n");
 
   fp_OuvertureFichier(&fic); // open file .txt
 
   menu(fic);
 
-  printf("Fin de prog\n");
+  //printf("Fin de prog\n");
 
   if(fic!=NULL)
   {

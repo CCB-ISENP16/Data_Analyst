@@ -404,7 +404,7 @@ printf("\rRating of PARENTING app :                     \t\t%.2f\n",Rating_Of_PA
 printf("\rRating of WEATHER app ⛅️ :                    \t\t%.2f\n",Rating_Of_WEATHER);
 printf("\rRating of VIDEO_PLAYERS app 🎞 :              \t\t%.2f\n",Rating_Of_VIDEO_PLAYERS);
 printf("\rRating of NEWS_AND_MAGAZINES app 📰 :         \t\t%.2f\n",Rating_Of_NEWS_AND_MAGAZINES);
-printf("\rRating of MAPS_AND_NAVIGATION app 🧭 :        \t\t%.2f\n",Rating_Of_MAPS_AND_NAVIGATION); // Print the results
+printf("\rRating of MAPS_AND_NAVIGATION app 🧭 :        \t\t%.2f \% \n",Rating_Of_MAPS_AND_NAVIGATION); // Print the results
 
 printf("\n***********************\n\n");
 
@@ -724,7 +724,7 @@ void Txt_to_Struc(FILE* fic, int *i, APPtxt *Store) // Copy all the .txt file in
   char *token;
   *i = 0;
 
-  printf("Start of creerUneStructure function\n"); // Only for DEBUG
+  printf("\nStart of Txt_to_Struc function\n"); // Only for DEBUG
 
   while (fgets(LineBuffer,TAILLE,fic)!=NULL)
   {
@@ -770,15 +770,16 @@ void Txt_to_Struc(FILE* fic, int *i, APPtxt *Store) // Copy all the .txt file in
     strcpy(Store[*i].Android_Ver,token); // Copy  the token in the correspondant member of the struct
 
     *i = *i+1; // Just a counter in place each member in each struct
-
+    printf("i : %d\n",*i);
     //printf("End of whileloop\n"); // Only for DEBUG
   }
-  printf("End of creerUneStructure function\n\n"); //Only for DEBUG
+  fseek(fic, 0, SEEK_SET);
+  printf("End of Txt_to_Struc function\n\n"); //Only for DEBUG
 }
 
 void RawStructToTypeStruct(APPtxt *Raw_Store, APPtype *New_Store,int NbStructs) // Copy the RawStruct(Only char) To a TypeStruct(char or float)
 {
-  printf("Start of RawStructToTypeStruct function\n");
+  printf("\nStart of RawStructToTypeStruct function\n");
 
   for (int j=0;j<NbStructs;j++)
   {
@@ -803,7 +804,7 @@ void RawStructToTypeStruct(APPtxt *Raw_Store, APPtype *New_Store,int NbStructs) 
     New_Store[j].Android_Ver = atof(Raw_Store[j].Android_Ver);
   }
 
-  printf("Start of RawStructToTypeStruct function\n");
+  printf("End of RawStructToTypeStruct function\n");
 }
 
 int nbdeligne(FILE* fic) // Count the number of ligne of the .txt file
@@ -820,7 +821,7 @@ int nbdeligne(FILE* fic) // Count the number of ligne of the .txt file
 
 void printStore(APPtype *Store,int i) // Print all the PlayStore
 {
-  printf("Start of printStore function\n");
+  printf("\nStart of printStore function\n");
 
   for(int j=0;j<i;j++)
   {
@@ -839,22 +840,37 @@ void printStore(APPtype *Store,int i) // Print all the PlayStore
     printf("\rLast_Updated of App :    \t\t%s\n",Store[j].Last_Updated);
     printf("\rCurrent_Ver of App :     \t\t%s\n",Store[j].Current_Ver);
     printf("\rAndroid_Ver of App :     \t\t%.2f\n",Store[j].Android_Ver);
-
-    //printf("************************\n");
   }
   printf("End of printStore function\n");
 }
 
-void ResizeStruct(APPtxt *Store,FILE*fic) // dimension le tableau de structure selon le fichier
+APPtxt* ResizeStrucTxt(FILE*fic) // dimension le tableau de structure selon le fichier
 {
-
-  APPtxt *NewStore = NULL;
+  printf("\nStart of ResizeStrucTxt function\n");
+  APPtxt *Raw_Store = NULL;
 
   int NbDeLigne;
   NbDeLigne = nbdeligne(fic);
-  NewStore=malloc(NbDeLigne*sizeof(APPtxt));
-  //printf("taille %d\n", NewStore);
-  //pt_nouveau=malloc(i*sizeof(DVD));
+  Raw_Store=malloc(NbDeLigne*sizeof(APPtxt));
+
+  printf("End of ResizeStrucTxt function\n");
+
+  fseek(fic, 0, SEEK_SET);
+  return Raw_Store;
+}
+
+APPtype* ResizeStructType(FILE*fic) // dimension le tableau de structure selon le fichier
+{
+  printf("\nStart of ResizeStructType function\n");
+  APPtype *New_Store = NULL;
+
+  int NbDeLigne;
+  NbDeLigne = nbdeligne(fic);
+  New_Store=malloc(NbDeLigne*sizeof(APPtype));
+  printf("End of ResizeStructType function\n");
+
+  fseek(fic, 0, SEEK_SET);
+  return New_Store;
 }
 
 void filter (APPtxt *Store,int Selected,int j)
@@ -1170,15 +1186,24 @@ void average(APPtype *Store,int Selected, int i) //Calcul the average of somethi
 
 void menu(FILE* fic) // print the menu
 {
-  int Selected = 0,NbStructs = 0,choix = 0;
-  APPtype New_Store[10850];
-  APPtxt Raw_Store[10850];
+  int Selected = 0,
+      NbStructs = 0,
+      choix = 0;
+
+  APPtype *New_Store = NULL;
+  APPtxt *Raw_Store = NULL;
   char *StrSelect[50];
 
-  printf("\n\n🤶🎅 Menu Principal 🎅🤶\n\n");
+
+  Raw_Store = ResizeStrucTxt(fic);
+  New_Store = ResizeStructType(fic);
 
   Txt_to_Struc(fic,&NbStructs,Raw_Store);
+
+  printf("NbStructs : %d\n",NbStructs);
+
   Correct_Member(Raw_Store,NbStructs);
+  printf("NbStructs");
   RawStructToTypeStruct(Raw_Store,New_Store,NbStructs);
 
   do{
@@ -1297,6 +1322,20 @@ void Correct_Member(APPtxt *Raw_Store,int i) // correct the member of the struct
 
     strcpy(Raw_Store[j].Size,Size); // Copy the variable de transfere into the struct
     //printf("SIZE : %s\n",Raw_Store[j].Size); Only for DEBUG
+
+    char Installs[50]; // variable de transfere
+    strcpy(Installs,Raw_Store[j].Installs); // Copy the string of the struct into the variable de transfere
+
+    for (int c =0;c<50;c++)
+    {
+      if(Installs[c] == '+') // if a '+' is detect, we replace it with \0 in order to trim the array
+      {
+        Installs[c] = '\0';
+      }
+    }
+    strcpy(Raw_Store[j].Installs,Installs); // Copy the variable de transfere into the struct
+    //printf("INSTALL : %s\n",Raw_Store[j].Installs);
+    //printf("NbStructs : %d\n",j);
 
     if (strcmp(Raw_Store[j].Price,"0") != 0)
     {
