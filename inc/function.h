@@ -13,54 +13,52 @@ typedef struct date
 } Date;
 */
 
-typedef struct apptxt
+typedef struct apptxt // Raw_Store from .txt file (Only char)
 {
-  char Name[500];
-  char Category[500];
-  char Rating[500];
-  char Reviews[500];
-  char Size[500];
-  char Installs[500];
-  char Type[500];
-  char Price[500];
-  char Content_Rating[500];
-  char Genres[500];
-  char Last_Updated[500];
-  char Current_Ver[500];
-  char Android_Ver[500];
+  char Name[200];
+  char Category[100];
+  char Rating[50];
+  char Reviews[100];
+  char Size[100];
+  char Installs[100];
+  char Type[50];
+  char Price[100];
+  char Content_Rating[50];
+  char Genres[100];
+  char Last_Updated[50];
+  char Current_Ver[50];
+  char Android_Ver[50];
 } APPtxt;
 
-typedef struct apptype
+typedef struct apptype // New_Store after treatment
 {
-  char Name[500];
-  char Category[500];
+  char Name[200];
+  char Category[100];
   float Rating;
   float Reviews;
   float Size;
   float Installs;
-  char Type[500];
+  char Type[50];
   float Price;
-  char Content_Rating[500];
-  char Genres[500];
-  char Last_Updated[500];
-  char Current_Ver[500];
+  char Content_Rating[50];
+  char Genres[100];
+  char Last_Updated[50];
+  char Current_Ver[50];
   float Android_Ver;
 } APPtype;
 
-void fp_OuvertureFichier(FILE **);
+void fp_OuvertureFichier(FILE **); // Open .txt file
 char *choose (int *Selected); // Goal : choose an attribut CL
-void filter (APPtxt *Store,int Selected,int j);  // Call choose function; sort by an attribut L
 void partof(APPtype *NewStore,int choix,int NbStructs); // Call choose function; Goal : calculate the percentage of the choosen attribut C
-void average(APPtype *Store,int Selected, int i); // Call choose function; Goal : calculate the average. L
+float average(APPtype *Store,int Selected, int i); // Call choose function; Goal : calculate the average. L
 float hopedl (FILE*fic); // Call choose function; Goal : calculate the odds to be download. C
-
-APPtype* ResizeStructType(FILE*fic);
-APPtxt* ResizeStrucTxt(FILE*fic);
-
-void Sort_float(APPtype *Store,int NbStructs);
+APPtype* ResizeStructType(FILE*fic); // Use dynamic memory to stock the struct
+APPtxt* ResizeStrucTxt(FILE*fic); // Use dynamic memory to stock the struct
+void Sort_float(APPtype *Store,int NbStructs); // Sort by ascending the Apps
 void Txt_to_Struc(FILE* fic, int *i, APPtxt *Store); // Read the .txt file in order to create a struc of it
-void RawStructToTypeStruct(APPtxt *Raw_Store, APPtype *New_Store,int NbStructs);
+void RawStructToTypeStruct(APPtxt *Raw_Store, APPtype *New_Store,int NbStructs); // Copy the Raw_Store into the New_Store in a new struct(Char + Float)
 int nbdeligne(FILE* fic); // count the number of ligne and so the numbre of App
 void printStore(APPtype *Store,int i); // Print all the App
-void Correct_Member(APPtxt *Raw_Store,int i);
-void menu(FILE* fic);
+void Correct_Member(APPtxt *Raw_Store,int i); // Delete some part of Category in order to treat the struct easier later.
+void menu(FILE* fic); // print the menu
+void Esperance(APPtype *Store,int NbStructs); // Calcul the "Esperance"

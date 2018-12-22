@@ -2,7 +2,7 @@
 
 void fp_OuvertureFichier(FILE** fp) // Open the .txt file
 {
-  fprintf(stdout,"fp_OuvertureFichier: Begin\n");
+  //fprintf(stdout,"fp_OuvertureFichier: Begin\n");
 
   *fp=fopen("data/googleplaystore.txt","r+"); // open in read+ (Open for reading and writing)
   if(*fp==NULL)
@@ -16,24 +16,24 @@ void fp_OuvertureFichier(FILE** fp) // Open the .txt file
       exit(-1);
     }
   }
-  fprintf(stdout,"fp_OuvertureFichier: End\n\n");
+  //fprintf(stdout,"fp_OuvertureFichier: End\n\n");
 }
 
 void partof(APPtype *New_Store,int choix,int NbStructs) // Calcul the % of something
 {
-  printf("Start of partof function\n");
+  //printf("Start of partof function\n");
 
-  float Everyone=0,
-  Teen=0,
-  Everyone_10=0,
-  Mature_17=0,
-  Adults_only_18=0;
+  float Everyone=0.0,
+  Teen=0.0,
+  Everyone_10=0.0,
+  Mature_17=0.0,
+  Adults_only_18=0.0;
 
-  float Rating_Of_Everyone=0,
-  Rating_Of_Teen=0,
-  Rating_Of_Everyone_10=0,
-  Rating_Of_Mature_17=0,
-  Rating_Of_Adults_only_18=0;
+  float Rating_Of_Everyone=0.0,
+  Rating_Of_Teen=0.0,
+  Rating_Of_Everyone_10=0.0,
+  Rating_Of_Mature_17=0.0,
+  Rating_Of_Adults_only_18=0.0;
 
   float ART_AND_DESIGN=0,
   AUTO_AND_VEHICLES=0,
@@ -104,507 +104,505 @@ void partof(APPtype *New_Store,int choix,int NbStructs) // Calcul the % of somet
   Rating_Of_MAPS_AND_NAVIGATION=0;
 
   int i = 0;
-  int Rating = 0;
   float floatRating = 0.0;
-  char StrParameter[20];
-  char Name[20];
+  //char StrParameter[50];
+  //char Name[20];
   float floatParameter = 0.0;
 
   //char Category1 [50];
 
   switch (choix)
   {
-    case 1: //Name
-    printf("Comming Soon\n");
-    /*
-    printf("Entrer un parametre :\n");
-    scanf("%s",StrParameter);
+    // case 1: //Name
+    // printf("Comming Soon\n");
+    //
+    // printf("Entrer un parametre :\n");
+    // scanf("%s",StrParameter);
+    //
+    // for(int j=1;j<NbStructs;j++)
+    // {
+    //   for(int k=1;k<20;k++)
+    //   {
+    //     if(strcmp(StrParameter,New_Store[j])==0)
+    //     {
+    //       i++;
+    //     }
+    //   }
+    // }
+    // floatRating = ((i/NbStructs-1.0)*100);
+    // printf("%.2f %c of app have %s in their Name\n",floatRating,37,Name);
+    // break;
+
+    case 2: // Category
+
+    //printf("NbStructs : %d\n",NbStructs);
+    for (int j=1;j<NbStructs;j++)
+    {
+      if(strcmp(New_Store[j].Category,"ART_AND_DESIGN") == 0)
+      {
+        ART_AND_DESIGN=ART_AND_DESIGN + 1.0;
+        //printf("ART_AND_DESIGN : %.0f\n",ART_AND_DESIGN); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"AUTO_AND_VEHICLES") == 0)
+      {
+        AUTO_AND_VEHICLES=AUTO_AND_VEHICLES+1;
+        // printf("AUTO_AND_VEHICLES : %.0f\n",AUTO_AND_VEHICLES); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"BEAUTY") == 0)
+      {
+        BEAUTY=BEAUTY+1;
+        // printf("BEAUTY : %.0f\n",BEAUTY); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"BOOKS_AND_REFERENCE") == 0)
+      {
+        BOOKS_AND_REFERENCE=BOOKS_AND_REFERENCE+1;
+        // printf("BOOKS_AND_REFERENCE : %.0f\n",BOOKS_AND_REFERENCE); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"BUSINESS") == 0)
+      {
+        BUSINESS=BUSINESS+1;
+        // printf("BUSINESS : %.0f\n",BUSINESS); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"COMICS") == 0)
+      {
+        COMICS=COMICS+1;
+        // printf("COMICS : %.0f\n",COMICS); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"COMMUNICATION") == 0)
+      {
+        COMMUNICATION=COMMUNICATION+1;
+        // printf("COMMUNICATION : %.0f\n",COMMUNICATION); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"DATING") == 0)
+      {
+        DATING=DATING+1;
+        // printf("DATING : %.0f\n",DATING); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"EDUCATION") == 0)
+      {
+        EDUCATION=EDUCATION+1;
+        // printf("EDUCATION : %.0f\n",EDUCATION); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"ENTERTAINMENT") == 0)
+      {
+        ENTERTAINMENT=ENTERTAINMENT+1;
+        // printf("ENTERTAINMENT : %.0f\n",ENTERTAINMENT); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"EVENTS") == 0)
+      {
+        EVENTS=EVENTS+1;
+        // printf("EVENTS : %.0f\n",EVENTS); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"FINANCE") == 0)
+      {
+        FINANCE=FINANCE+1;
+        // printf("FINANCE : %.0f\n",FINANCE); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"FOOD_AND_DRINK") == 0)
+      {
+        FOOD_AND_DRINK=FOOD_AND_DRINK+1;
+        // printf("FOOD_AND_DRINK : %.0f\n",FOOD_AND_DRINK); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"HEALTH_AND_FITNESS") == 0)
+      {
+        HEALTH_AND_FITNESS=HEALTH_AND_FITNESS+1;
+        // printf("HEALTH_AND_FITNESS : %.0f\n",HEALTH_AND_FITNESS); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"HOUSE_AND_HOME") == 0)
+      {
+        HOUSE_AND_HOME=HOUSE_AND_HOME+1;
+        // printf("HEALTH_AND_FITNESS : %.0f\n",HOUSE_AND_HOME); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"LIBRARIES_AND_DEMO") == 0)
+      {
+        LIBRARIES_AND_DEMO=LIBRARIES_AND_DEMO+1;
+        // printf("LIBRARIES_AND_DEMO : %.0f\n",LIBRARIES_AND_DEMO); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"LIFESTYLE") == 0)
+      {
+        LIFESTYLE=LIFESTYLE+1;
+        // printf("LIFESTYLE : %.0f\n",LIFESTYLE); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"GAME") == 0)
+      {
+        GAME=GAME+1;
+        // printf("GAME : %.0f\n",GAME); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"FAMILY") == 0)
+      {
+        FAMILY=FAMILY+1;
+        // printf("FAMILY : %.0f\n",FAMILY); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"MEDICAL") == 0)
+      {
+        MEDICAL=MEDICAL+1;
+        // printf("MEDICAL : %.0f\n",MEDICAL); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"SOCIAL") == 0)
+      {
+        SOCIAL=SOCIAL+1;
+        // printf("SOCIAL : %.0f\n",SOCIAL); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"SHOPPING") == 0)
+      {
+        SHOPPING=SHOPPING+1;
+        // printf("SHOPPING : %.0f\n",SHOPPING); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"PHOTOGRAPHY") == 0)
+      {
+        PHOTOGRAPHY=PHOTOGRAPHY+1;
+        // printf("PHOTOGRAPHY : %.0f\n",PHOTOGRAPHY); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"SPORTS") == 0)
+      {
+        SPORTS=SPORTS+1;
+        // printf("SPORTS : %.0f\n",SPORTS); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"TRAVEL_AND_LOCAL") == 0)
+      {
+        TRAVEL_AND_LOCAL=TRAVEL_AND_LOCAL+1;
+        // printf("TRAVEL_AND_LOCAL : %.0f\n",TRAVEL_AND_LOCAL); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"TOOLS") == 0)
+      {
+        TOOLS=TOOLS+1;
+        //printf("TOOLS : %.0f\n",TOOLS); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"PERSONALIZATION") == 0)
+      {
+        PERSONALIZATION=PERSONALIZATION+1;
+        // printf("PERSONALIZATION : %.0f\n",PERSONALIZATION); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"PRODUCTIVITY") == 0)
+      {
+        PRODUCTIVITY=PRODUCTIVITY+1;
+        // printf("PRODUCTIVITY : %.0f\n",PRODUCTIVITY); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"PARENTING") == 0)
+      {
+        PARENTING=PARENTING+1;
+        // printf("PRODUCTIVITY : %.0f\n",PARENTING); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"WEATHER") == 0)
+      {
+        WEATHER=WEATHER+1;
+        // printf("WEATHER : %.0f\n",WEATHER); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"VIDEO_PLAYERS") == 0)
+      {
+        VIDEO_PLAYERS=VIDEO_PLAYERS+1;
+        // printf("WEATHER : %.0f\n",VIDEO_PLAYERS); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"NEWS_AND_MAGAZINES") == 0)
+      {
+        NEWS_AND_MAGAZINES=NEWS_AND_MAGAZINES+1;
+        // printf("NEWS_AND_MAGAZINES : %.0f\n",NEWS_AND_MAGAZINES); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Category,"MAPS_AND_NAVIGATION") == 0)
+      {
+        MAPS_AND_NAVIGATION=MAPS_AND_NAVIGATION+1;
+        // printf("MAPS_AND_NAVIGATION : %.0f\n",MAPS_AND_NAVIGATION); //Only for DEBUG
+      }
+    }
+
+    Rating_Of_ART_AND_DESIGN = ((ART_AND_DESIGN/(NbStructs-1.0))*100.0); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
+    Rating_Of_AUTO_AND_VEHICLES = ((AUTO_AND_VEHICLES/(NbStructs-1.0))*100.0);
+    Rating_Of_BEAUTY = ((BEAUTY/(NbStructs-1.0))*100.0);
+    Rating_Of_BOOKS_AND_REFERENCE = ((BOOKS_AND_REFERENCE/(NbStructs-1.0))*100.0);
+    Rating_Of_BUSINESS = ((BUSINESS/(NbStructs-1.0))*100.0);
+    Rating_Of_COMICS = ((COMICS/(NbStructs-1.0))*100.0);
+    Rating_Of_COMMUNICATION = ((COMMUNICATION/(NbStructs-1.0))*100.0);
+    Rating_Of_DATING = ((DATING/(NbStructs-1.0))*100.0);
+    Rating_Of_EDUCATION = ((EDUCATION/(NbStructs-1.0))*100.0);
+    Rating_Of_ENTERTAINMENT = ((ENTERTAINMENT/(NbStructs-1.0))*100.0);
+    Rating_Of_EVENTS = ((EVENTS/(NbStructs-1.0))*100.0);
+    Rating_Of_FINANCE = ((FINANCE/(NbStructs-1.0))*100.0);
+    Rating_Of_FOOD_AND_DRINK = ((FOOD_AND_DRINK/(NbStructs-1.0))*100.0);
+    Rating_Of_HEALTH_AND_FITNESS = ((HEALTH_AND_FITNESS/(NbStructs-1.0))*100.0);
+    Rating_Of_HOUSE_AND_HOME = ((HOUSE_AND_HOME/(NbStructs-1.0))*100.0);
+    Rating_Of_LIBRARIES_AND_DEMO = ((LIBRARIES_AND_DEMO/(NbStructs-1.0))*100.0);
+    Rating_Of_LIFESTYLE = ((LIFESTYLE/(NbStructs-1.0))*100.0);
+    Rating_Of_GAME = ((GAME/(NbStructs-1.0))*100.0);
+    Rating_Of_FAMILY = ((FAMILY/(NbStructs-1.0))*100.0);
+    Rating_Of_MEDICAL = ((MEDICAL/(NbStructs-1.0))*100.0);
+    Rating_Of_SOCIAL = ((SOCIAL/(NbStructs-1.0))*100.0);
+    Rating_Of_SHOPPING = ((SHOPPING/(NbStructs-1.0))*100.0);
+    Rating_Of_PHOTOGRAPHY = ((PHOTOGRAPHY/(NbStructs-1.0))*100.0);
+    Rating_Of_SPORTS = ((SPORTS/(NbStructs-1.0))*100.0);
+    Rating_Of_TRAVEL_AND_LOCAL = ((TRAVEL_AND_LOCAL/(NbStructs-1.0))*100.0);
+    Rating_Of_TOOLS = ((TOOLS/(NbStructs-1.0))*100.0);
+    Rating_Of_PERSONALIZATION = ((PERSONALIZATION/(NbStructs-1.0))*100.0);
+    Rating_Of_PRODUCTIVITY = ((PRODUCTIVITY/(NbStructs-1.0))*100.0);
+    Rating_Of_PARENTING = ((PARENTING/(NbStructs-1.0))*100.0);
+    Rating_Of_WEATHER = ((WEATHER/(NbStructs-1.0))*100.0);
+    Rating_Of_VIDEO_PLAYERS = ((VIDEO_PLAYERS/(NbStructs-1.0))*100.0);
+    Rating_Of_NEWS_AND_MAGAZINES = ((NEWS_AND_MAGAZINES/(NbStructs-1.0))*100.0);
+    Rating_Of_MAPS_AND_NAVIGATION = ((MAPS_AND_NAVIGATION/(NbStructs-1.0))*100.0); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
+
+
+    printf("\n\n*** RESULTS ***\n\n");
+
+    printf("%.2f %c des Apps sont dans la catégorie : ART_AND_DESIGN 🎨\n",Rating_Of_ART_AND_DESIGN,37); // Print the results
+    printf("%.2f %c des Apps sont dans la catégorie : AUTO_AND_VEHICLES app 🚗\n",Rating_Of_AUTO_AND_VEHICLES,37);
+    printf("%.2f %c des Apps sont dans la catégorie : BEAUTY app 💄\n",Rating_Of_BEAUTY,37);
+    printf("%.2f %c des Apps sont dans la catégorie : BOOKS_AND_REFERENCE app 📕\n",Rating_Of_BOOKS_AND_REFERENCE,37);
+    printf("%.2f %c des Apps sont dans la catégorie : BUSINESS app 💸\n",Rating_Of_BUSINESS,37);
+    printf("%.2f %c des Apps sont dans la catégorie : COMICS app 💬\n",Rating_Of_COMICS,37);
+    printf("%.2f %c des Apps sont dans la catégorie : COMMUNICATION app 🗣\n",Rating_Of_COMMUNICATION,37);
+    printf("%.2f %c des Apps sont dans la catégorie : DATING app 💑\n",Rating_Of_DATING,37);
+    printf("%.2f %c des Apps sont dans la catégorie : Apps sont dans la catégorie : EDUCATION app 👨\n",Rating_Of_EDUCATION,37);
+    printf("%.2f %c des Apps sont dans la catégorie : ENTERTAINMENT app ⚽️\n",Rating_Of_ENTERTAINMENT,37);
+    printf("%.2f %c des Apps sont dans la catégorie : EVENTS app 📆\n",Rating_Of_EVENTS,37);
+    printf("%.2f %c des Apps sont dans la catégorie : FINANCE app 📈\n",Rating_Of_FINANCE,37);
+    printf("%.2f %c des Apps sont dans la catégorie : FOOD_AND_DRINK app 🍔\n",Rating_Of_FOOD_AND_DRINK,37);
+    printf("%.2f %c des Apps sont dans la catégorie : HEALTH_AND_FITNESS app 🍎\n",Rating_Of_HEALTH_AND_FITNESS,37);
+    printf("%.2f %c des Apps sont dans la catégorie : HOUSE_AND_HOME app 🏠\n",Rating_Of_HOUSE_AND_HOME,37);
+    printf("%.2f %c des Apps sont dans la catégorie : LIBRARIES_AND_DEMO app 📗\n",Rating_Of_LIBRARIES_AND_DEMO,37);
+    printf("%.2f %c des Apps sont dans la catégorie : LIFESTYLE app\n",Rating_Of_LIFESTYLE,37);
+    printf("%.2f %c des Apps sont dans la catégorie : GAME app 📺\n",Rating_Of_GAME,37);
+    printf("%.2f %c des Apps sont dans la catégorie : FAMILY app\n",Rating_Of_FAMILY,37);
+    printf("%.2f %c des Apps sont dans la catégorie : MEDICAL app 🏥\n",Rating_Of_MEDICAL,37);
+    printf("%.2f %c des Apps sont dans la catégorie : SOCIAL app 👬\n",Rating_Of_SOCIAL,37);
+    printf("%.2f %c des Apps sont dans la catégorie : SHOPPING app 🛒\n",Rating_Of_SHOPPING,37);
+    printf("%.2f %c des Apps sont dans la catégorie : PHOTOGRAPHY app 📷\n",Rating_Of_PHOTOGRAPHY,37);
+    printf("%.2f %c des Apps sont dans la catégorie : SPORTS app 🏀\n",Rating_Of_SPORTS,37);
+    printf("%.2f %c des Apps sont dans la catégorie : TRAVEL_AND_LOCAL app ✈️\n",Rating_Of_TRAVEL_AND_LOCAL,37);
+    printf("%.2f %c des Apps sont dans la catégorie : TOOLS app 🔨\n",Rating_Of_TOOLS,37);
+    printf("%.2f %c des Apps sont dans la catégorie : PERSONALIZATION app ✏️\n",Rating_Of_PERSONALIZATION,37);
+    printf("%.2f %c des Apps sont dans la catégorie : PRODUCTIVITY app 📋\n",Rating_Of_PRODUCTIVITY,37);
+    printf("%.2f %c des Apps sont dans la catégorie : PARENTING app\n",Rating_Of_PARENTING,37);
+    printf("%.2f %c des Apps sont dans la catégorie : WEATHER app ⛅️\n",Rating_Of_WEATHER,37);
+    printf("%.2f %c des Apps sont dans la catégorie : VIDEO_PLAYERS app 🎞\n",Rating_Of_VIDEO_PLAYERS,37);
+    printf("%.2f %c des Apps sont dans la catégorie : NEWS_AND_MAGAZINES app 📰\n",Rating_Of_NEWS_AND_MAGAZINES,37);
+    printf("%.2f %c des Apps sont dans la catégorie : MAPS_AND_NAVIGATION app 🧭\n",Rating_Of_MAPS_AND_NAVIGATION,37); // Print the results
+
+    printf("\n***********************\n\n");
+
+    //printf("End of case 7\n"); // Only for DEBUG
+    break;
+
+    case 3: // Rating
+
+    printf("\nEntrer un une valeur de seuil (Note Max/5) : ");
+    scanf("%f",&floatParameter); // define a Threshold values
+
+    for(int j=1;j<NbStructs;j++) // Treat all the struc
+    {
+
+      //printf("INSTALL : %f\n",New_Store[j].Installs); // Only for DEBUG
+      //printf("INSTALL_HARD : %f\n",floatParameter); // Only for DEBUG
+
+      if(New_Store[j].Rating < floatParameter) // if the current member is lower than the Threshold
+      {
+        i++; // We increase the counter i
+        //printf("i : %d\n",i); //Only for DEBUG
+      }
+    }
+    floatRating = ((i/(NbStructs-1.0))*100); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
+    printf("\n%.2f %c des Apps ont une note inférieur a %.1f/5.0\n",floatRating,37,floatParameter);
+    //printf("End of case 3\n");
+    break;
+
+    case 4: // Reviews
+
+    printf("\nEntrer un une valeur de seuil (Nb de commentaires Max) : ");
+    scanf("%f",&floatParameter);
 
     for(int j=1;j<NbStructs;j++)
     {
-    for(int k=1;k<20;k++)
+
+      //printf("INSTALL : %f\n",New_Store[j].Installs); // Only for DEBUG
+      //printf("INSTALL_HARD : %f\n",floatParameter); // Only for DEBUG
+
+      if(New_Store[j].Reviews < floatParameter)
+      {
+        i++;
+        //printf("i : %d\n",i); //Only for DEBUG
+      }
+    }
+    floatRating = ((i/(NbStructs-1.0))*100); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
+    printf("\n%.2f %c des Apps ont été commentée moins de %.0f fois\n",floatRating,37,floatParameter);
+
+    break;
+
+    case 5: // Size
+
+    printf("\nEntrer un une valeur de seuil (Taille Max): ");
+    scanf("%f",&floatParameter);
+
+    for(int j=1;j<NbStructs;j++)
     {
-    strcmp(StrParameter,Name[k]);
+
+      //printf("INSTALL : %f\n",New_Store[j].Installs); // Only for DEBUG
+      //printf("INSTALL_HARD : %f\n",floatParameter); // Only for DEBUG
+
+      if(New_Store[j].Size < floatParameter)
+      {
+        i++;
+        //printf("i : %d\n",i); //Only for DEBUG
+      }
+    }
+    floatRating = ((i/(NbStructs-1.0))*100); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
+    printf("\n%.2f %c des Apps ont une taille inférieur a %.0f\n",floatRating,37,floatParameter);
+
+    break;
+
+    case 6: // Installs
+    printf("\nEntrer un une valeur de seuil (Nb d'installation Max): ");
+    scanf("%f",&floatParameter);
+
+    for(int j=1;j<NbStructs;j++)
+    {
+
+      //printf("INSTALL : %f\n",New_Store[j].Installs); // Only for DEBUG
+      //printf("INSTALL_HARD : %f\n",floatParameter); // Only for DEBUG
+
+      if(New_Store[j].Installs < floatParameter)
+      {
+        i++;
+        //printf("i : %d\n",i); //Only for DEBUG
+      }
+    }
+    floatRating = ((i/(NbStructs-1.0))*100); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
+    printf("\n%.2f %c des Apps ont été téléchargée moins de %.2f fois\n",floatRating,37,floatParameter);
+    //printf("End of case 6\n");
+    break;
+
+    case 7: // Type
+    //printf("Start of case 7\n");
+    //printf("NbStructs : %d\n",NbStructs);
+    for (int j=1;j<NbStructs;j++)
+    {
+      if(strcmp(New_Store[j].Type,"Free") == 0)
+      {
+        i++;
+        //printf("i : %d\n",i); Only for DEBUG
+      }
+    }
+    floatRating = ((i/(NbStructs-1.0))*100);
+    printf("\n%.2f %c des Apps sont gratuites\n",floatRating,37);
+    printf("%.2f %c des Apps sont payantes\n",(100.0-floatRating),37);
+    //printf("End of case 7\n");
+    break;
+
+    case 8 : // Price
+
+    printf("\nEntrer un parametre (Prix Max): ");
+    scanf("%f",&floatParameter);
+
+    for(int j=1;j<NbStructs;j++)
+    {
+
+      //printf("INSTALL : %f\n",New_Store[j].Installs); // Only for DEBUG
+      //printf("INSTALL_HARD : %f\n",floatParameter); // Only for DEBUG
+
+      if(New_Store[j].Price < floatParameter)
+      {
+        i++;
+        //printf("i : %d\n",i); //Only for DEBUG
+      }
+    }
+    floatRating = ((i/(NbStructs-1.0))*100); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
+    printf("\n%.2f %c des Apps sont a moins de %.2f $\n",floatRating,37,floatParameter);
+
+    break;
+
+    case 9 : //Content_Rating
+
+    //printf("NbStructs : %d\n",NbStructs);
+    for (int j=1;j<NbStructs;j++)
+    {
+      if(strcmp(New_Store[j].Content_Rating,"Everyone") == 0)
+      {
+        Everyone=Everyone + 1.0;
+        // printf("Everyone : %.0f\n",Everyone); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Content_Rating,"Teen") == 0)
+      {
+        Teen=Teen+1;
+        // printf("Teen : %.0f\n",Teen); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Content_Rating,"Everyone_10+") == 0)
+      {
+        Everyone_10=Everyone_10+1;
+        // printf("Everyone_10 : %.0f\n",Everyone_10); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Content_Rating,"Mature_17+") == 0)
+      {
+        Mature_17=Mature_17+1;
+        // printf("Mature_17 : %.0f\n",Mature_17); //Only for DEBUG
+      }
+
+      if(strcmp(New_Store[j].Content_Rating,"Adults_only_18+") == 0)
+      {
+        Adults_only_18=Adults_only_18+1;
+        //printf("Adults_only_18 : %.0f\n",Adults_only_18); //Only for DEBUG
+      }
+    }
+    Rating_Of_Everyone = ((Everyone/(NbStructs-1))*100); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
+    Rating_Of_Teen = ((Teen/(NbStructs-1))*100);
+    Rating_Of_Everyone_10 = ((Everyone_10/(NbStructs-1))*100);
+    Rating_Of_Mature_17 = ((Mature_17/(NbStructs-1))*100);
+    Rating_Of_Adults_only_18 = ((Adults_only_18/(NbStructs-1))*100); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
+
+    printf("\n\n*** RESULTS ***\n\n");
+
+    printf("%.2f %c des Apps sont pour [Everyone]\n",Rating_Of_Everyone,37);
+    printf("%.2f %c des Apps sont pour [Teen]\n",Rating_Of_Teen,37);
+    printf("%.2f %c des Apps sont pour [Everyone_10]\n",Rating_Of_Everyone_10,37);
+    printf("%.2f %c des Apps sont pour [Mature_17]\n",Rating_Of_Mature_17,37);
+    printf("%.2f %c des Apps sont pour [Adults_only_18]\n",Rating_Of_Adults_only_18,37);
+
+    printf("\n***********************\n\n");
+
+    //printf("End of case 7\n");
+    break;
+
+    case 10: //Genres
+    printf("\n\nLes résultats sont identique au choix [2) Catégorie] 😛\n");
+    printf("La prochaine fois sélectionner le choix n°2\n");
+    break;
+
+    default :
+    printf("\n*** Votre choix ne permet pas d'etablir un pourcentage ***\n");
+    break;
   }
-  i++;
-  //printf("i : %d\n",i); //Only for DEBUG
-}
-*/
-break;
-
-case 2: // Category
-
-printf("NbStructs : %d\n",NbStructs);
-for (int j=1;j<NbStructs;j++)
-{
-  if(strcmp(New_Store[j].Category,"ART_AND_DESIGN") == 0)
-  {
-    ART_AND_DESIGN=ART_AND_DESIGN + 1.0;
-    printf("ART_AND_DESIGN : %.0f\n",ART_AND_DESIGN); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"AUTO_AND_VEHICLES") == 0)
-  {
-    AUTO_AND_VEHICLES=AUTO_AND_VEHICLES+1;
-    printf("AUTO_AND_VEHICLES : %.0f\n",AUTO_AND_VEHICLES); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"BEAUTY") == 0)
-  {
-    BEAUTY=BEAUTY+1;
-    printf("BEAUTY : %.0f\n",BEAUTY); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"BOOKS_AND_REFERENCE") == 0)
-  {
-    BOOKS_AND_REFERENCE=BOOKS_AND_REFERENCE+1;
-    printf("BOOKS_AND_REFERENCE : %.0f\n",BOOKS_AND_REFERENCE); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"BUSINESS") == 0)
-  {
-    BUSINESS=BUSINESS+1;
-    printf("BUSINESS : %.0f\n",BUSINESS); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"COMICS") == 0)
-  {
-    COMICS=COMICS+1;
-    printf("COMICS : %.0f\n",COMICS); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"COMMUNICATION") == 0)
-  {
-    COMMUNICATION=COMMUNICATION+1;
-    printf("COMMUNICATION : %.0f\n",COMMUNICATION); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"DATING") == 0)
-  {
-    DATING=DATING+1;
-    printf("DATING : %.0f\n",DATING); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"EDUCATION") == 0)
-  {
-    EDUCATION=EDUCATION+1;
-    printf("EDUCATION : %.0f\n",EDUCATION); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"ENTERTAINMENT") == 0)
-  {
-    ENTERTAINMENT=ENTERTAINMENT+1;
-    printf("ENTERTAINMENT : %.0f\n",ENTERTAINMENT); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"EVENTS") == 0)
-  {
-    EVENTS=EVENTS+1;
-    printf("EVENTS : %.0f\n",EVENTS); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"FINANCE") == 0)
-  {
-    FINANCE=FINANCE+1;
-    printf("FINANCE : %.0f\n",FINANCE); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"FOOD_AND_DRINK") == 0)
-  {
-    FOOD_AND_DRINK=FOOD_AND_DRINK+1;
-    printf("FOOD_AND_DRINK : %.0f\n",FOOD_AND_DRINK); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"HEALTH_AND_FITNESS") == 0)
-  {
-    HEALTH_AND_FITNESS=HEALTH_AND_FITNESS+1;
-    printf("HEALTH_AND_FITNESS : %.0f\n",HEALTH_AND_FITNESS); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"HOUSE_AND_HOME") == 0)
-  {
-    HOUSE_AND_HOME=HOUSE_AND_HOME+1;
-    printf("HEALTH_AND_FITNESS : %.0f\n",HOUSE_AND_HOME); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"LIBRARIES_AND_DEMO") == 0)
-  {
-    LIBRARIES_AND_DEMO=LIBRARIES_AND_DEMO+1;
-    printf("LIBRARIES_AND_DEMO : %.0f\n",LIBRARIES_AND_DEMO); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"LIFESTYLE") == 0)
-  {
-    LIFESTYLE=LIFESTYLE+1;
-    printf("LIFESTYLE : %.0f\n",LIFESTYLE); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"GAME") == 0)
-  {
-    GAME=GAME+1;
-    printf("GAME : %.0f\n",GAME); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"FAMILY") == 0)
-  {
-    FAMILY=FAMILY+1;
-    printf("FAMILY : %.0f\n",FAMILY); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"MEDICAL") == 0)
-  {
-    MEDICAL=MEDICAL+1;
-    printf("MEDICAL : %.0f\n",MEDICAL); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"SOCIAL") == 0)
-  {
-    SOCIAL=SOCIAL+1;
-    printf("SOCIAL : %.0f\n",SOCIAL); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"SHOPPING") == 0)
-  {
-    SHOPPING=SHOPPING+1;
-    printf("SHOPPING : %.0f\n",SHOPPING); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"PHOTOGRAPHY") == 0)
-  {
-    PHOTOGRAPHY=PHOTOGRAPHY+1;
-    printf("PHOTOGRAPHY : %.0f\n",PHOTOGRAPHY); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"SPORTS") == 0)
-  {
-    SPORTS=SPORTS+1;
-    printf("SPORTS : %.0f\n",SPORTS); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"TRAVEL_AND_LOCAL") == 0)
-  {
-    TRAVEL_AND_LOCAL=TRAVEL_AND_LOCAL+1;
-    printf("TRAVEL_AND_LOCAL : %.0f\n",TRAVEL_AND_LOCAL); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"TOOLS") == 0)
-  {
-    TOOLS=TOOLS+1;
-    printf("TOOLS : %.0f\n",TOOLS); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"PERSONALIZATION") == 0)
-  {
-    PERSONALIZATION=PERSONALIZATION+1;
-    printf("PERSONALIZATION : %.0f\n",PERSONALIZATION); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"PRODUCTIVITY") == 0)
-  {
-    PRODUCTIVITY=PRODUCTIVITY+1;
-    printf("PRODUCTIVITY : %.0f\n",PRODUCTIVITY); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"PARENTING") == 0)
-  {
-    PARENTING=PARENTING+1;
-    printf("PRODUCTIVITY : %.0f\n",PARENTING); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"WEATHER") == 0)
-  {
-    WEATHER=WEATHER+1;
-    printf("WEATHER : %.0f\n",WEATHER); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"VIDEO_PLAYERS") == 0)
-  {
-    VIDEO_PLAYERS=VIDEO_PLAYERS+1;
-    printf("WEATHER : %.0f\n",VIDEO_PLAYERS); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"NEWS_AND_MAGAZINES") == 0)
-  {
-    NEWS_AND_MAGAZINES=NEWS_AND_MAGAZINES+1;
-    printf("NEWS_AND_MAGAZINES : %.0f\n",NEWS_AND_MAGAZINES); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Category,"MAPS_AND_NAVIGATION") == 0)
-  {
-    MAPS_AND_NAVIGATION=MAPS_AND_NAVIGATION+1;
-    printf("MAPS_AND_NAVIGATION : %.0f\n",MAPS_AND_NAVIGATION); //Only for DEBUG
-  }
-}
-
-Rating_Of_ART_AND_DESIGN = ((ART_AND_DESIGN/(NbStructs-1.0))*100.0); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
-Rating_Of_AUTO_AND_VEHICLES = ((AUTO_AND_VEHICLES/(NbStructs-1.0))*100.0);
-Rating_Of_BEAUTY = ((BEAUTY/(NbStructs-1.0))*100.0);
-Rating_Of_BOOKS_AND_REFERENCE = ((BOOKS_AND_REFERENCE/(NbStructs-1.0))*100.0);
-Rating_Of_BUSINESS = ((BUSINESS/(NbStructs-1.0))*100.0);
-Rating_Of_COMICS = ((COMICS/(NbStructs-1.0))*100.0);
-Rating_Of_COMMUNICATION = ((COMMUNICATION/(NbStructs-1.0))*100.0);
-Rating_Of_DATING = ((DATING/(NbStructs-1.0))*100.0);
-Rating_Of_EDUCATION = ((EDUCATION/(NbStructs-1.0))*100.0);
-Rating_Of_ENTERTAINMENT = ((ENTERTAINMENT/(NbStructs-1.0))*100.0);
-Rating_Of_EVENTS = ((EVENTS/(NbStructs-1.0))*100.0);
-Rating_Of_FINANCE = ((FINANCE/(NbStructs-1.0))*100.0);
-Rating_Of_FOOD_AND_DRINK = ((FOOD_AND_DRINK/(NbStructs-1.0))*100.0);
-Rating_Of_HEALTH_AND_FITNESS = ((HEALTH_AND_FITNESS/(NbStructs-1.0))*100.0);
-Rating_Of_HOUSE_AND_HOME = ((HOUSE_AND_HOME/(NbStructs-1.0))*100.0);
-Rating_Of_LIBRARIES_AND_DEMO = ((LIBRARIES_AND_DEMO/(NbStructs-1.0))*100.0);
-Rating_Of_LIFESTYLE = ((LIFESTYLE/(NbStructs-1.0))*100.0);
-Rating_Of_GAME = ((GAME/(NbStructs-1.0))*100.0);
-Rating_Of_FAMILY = ((FAMILY/(NbStructs-1.0))*100.0);
-Rating_Of_MEDICAL = ((MEDICAL/(NbStructs-1.0))*100.0);
-Rating_Of_SOCIAL = ((SOCIAL/(NbStructs-1.0))*100.0);
-Rating_Of_SHOPPING = ((SHOPPING/(NbStructs-1.0))*100.0);
-Rating_Of_PHOTOGRAPHY = ((PHOTOGRAPHY/(NbStructs-1.0))*100.0);
-Rating_Of_SPORTS = ((SPORTS/(NbStructs-1.0))*100.0);
-Rating_Of_TRAVEL_AND_LOCAL = ((TRAVEL_AND_LOCAL/(NbStructs-1.0))*100.0);
-Rating_Of_TOOLS = ((TOOLS/(NbStructs-1.0))*100.0);
-Rating_Of_PERSONALIZATION = ((PERSONALIZATION/(NbStructs-1.0))*100.0);
-Rating_Of_PRODUCTIVITY = ((PRODUCTIVITY/(NbStructs-1.0))*100.0);
-Rating_Of_PARENTING = ((PARENTING/(NbStructs-1.0))*100.0);
-Rating_Of_WEATHER = ((WEATHER/(NbStructs-1.0))*100.0);
-Rating_Of_VIDEO_PLAYERS = ((VIDEO_PLAYERS/(NbStructs-1.0))*100.0);
-Rating_Of_NEWS_AND_MAGAZINES = ((NEWS_AND_MAGAZINES/(NbStructs-1.0))*100.0);
-Rating_Of_MAPS_AND_NAVIGATION = ((MAPS_AND_NAVIGATION/(NbStructs-1.0))*100.0); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
-
-
-printf("\n\n*** RESULTS ***\n\n");
-printf("\rRating of ART_AND_DESIGN app 🎨 :             \t\t%.2f %c\n",Rating_Of_ART_AND_DESIGN,37); // Print the results
-printf("\rRating of AUTO_AND_VEHICLES app 🚗 :          \t\t%.2f %c\n",Rating_Of_AUTO_AND_VEHICLES,37);
-printf("\rRating of BEAUTY app 💄 :                     \t\t%.2f %c\n",Rating_Of_BEAUTY,37);
-printf("\rRating of BOOKS_AND_REFERENCE app 📕 :        \t\t%.2f %c\n",Rating_Of_BOOKS_AND_REFERENCE,37);
-printf("\rRating of BUSINESS app 💸 :                   \t\t%.2f %c\n",Rating_Of_BUSINESS,37);
-printf("\rRating of COMICS app 💬 :                     \t\t%.2f %c\n",Rating_Of_COMICS,37);
-printf("\rRating of COMMUNICATION app 🗣 :              \t\t%.2f %c\n",Rating_Of_COMMUNICATION,37);
-printf("\rRating of DATING app 💑 :                    \t\t%.2f %c\n",Rating_Of_DATING,37);
-printf("\rRating of EDUCATION app 👨 :                  \t\t%.2f %c\n",Rating_Of_EDUCATION,37);
-printf("\rRating of ENTERTAINMENT app ⚽️ :              \t\t%.2f %c\n",Rating_Of_ENTERTAINMENT,37);
-printf("\rRating of EVENTS app 📆 :                     \t\t%.2f %c\n",Rating_Of_EVENTS,37);
-printf("\rRating of FINANCE app 📈 :                    \t\t%.2f %c\n",Rating_Of_FINANCE,37);
-printf("\rRating of FOOD_AND_DRINK app 🍔 :             \t\t%.2f %c\n",Rating_Of_FOOD_AND_DRINK,37);
-printf("\rRating of HEALTH_AND_FITNESS app 🍎 :         \t\t%.2f %c\n",Rating_Of_HEALTH_AND_FITNESS,37);
-printf("\rRating of HOUSE_AND_HOME app 🏠 :             \t\t%.2f %c\n",Rating_Of_HOUSE_AND_HOME,37);
-printf("\rRating of LIBRARIES_AND_DEMO app 📗 :         \t\t%.2f %c\n",Rating_Of_LIBRARIES_AND_DEMO,37);
-printf("\rRating of LIFESTYLE app :                     \t\t%.2f %c\n",Rating_Of_LIFESTYLE,37);
-printf("\rRating of GAME app 📺 :                       \t\t%.2f %c\n",Rating_Of_GAME,37);
-printf("\rRating of FAMILY app :                        \t\t%.2f %c\n",Rating_Of_FAMILY,37);
-printf("\rRating of MEDICAL app 🏥 :                    \t\t%.2f %c\n",Rating_Of_MEDICAL,37);
-printf("\rRating of SOCIAL app 👬 :                     \t\t%.2f %c\n",Rating_Of_SOCIAL,37);
-printf("\rRating of SHOPPING app 🛒 :                   \t\t%.2f %c\n",Rating_Of_SHOPPING,37);
-printf("\rRating of PHOTOGRAPHY app  📷  :              \t\t%.2f %c\n",Rating_Of_PHOTOGRAPHY,37);
-printf("\rRating of SPORTS app 🏀 :                     \t\t%.2f %c\n",Rating_Of_SPORTS,37);
-printf("\rRating of TRAVEL_AND_LOCAL app ✈️ :           \t\t%.2f %c\n",Rating_Of_TRAVEL_AND_LOCAL,37);
-printf("\rRating of TOOLS app 🔨 :                      \t\t%.2f %c\n",Rating_Of_TOOLS,37);
-printf("\rRating of PERSONALIZATION app ✏️ :            \t\t%.2f %c\n",Rating_Of_PERSONALIZATION,37);
-printf("\rRating of PRODUCTIVITY app 📋 :               \t\t%.2f %c\n",Rating_Of_PRODUCTIVITY,37);
-printf("\rRating of PARENTING app :                     \t\t%.2f %c\n",Rating_Of_PARENTING,37);
-printf("\rRating of WEATHER app ⛅️ :                    \t\t%.2f %c\n",Rating_Of_WEATHER,37);
-printf("\rRating of VIDEO_PLAYERS app 🎞 :              \t\t%.2f %c\n",Rating_Of_VIDEO_PLAYERS,37);
-printf("\rRating of NEWS_AND_MAGAZINES app 📰 :         \t\t%.2f %c\n",Rating_Of_NEWS_AND_MAGAZINES,37);
-printf("\rRating of MAPS_AND_NAVIGATION app 🧭 :        \t\t%.2f %c \n",Rating_Of_MAPS_AND_NAVIGATION,37); // Print the results
-
-printf("\n***********************\n\n");
-
-printf("End of case 7\n"); // Only for DEBUG
-break;
-
-case 3: // Rating
-
-printf("Entrer un parametre :\n");
-scanf("%f",&floatParameter); // define a Threshold values
-
-for(int j=1;j<NbStructs;j++) // Treat all the struc
-{
-
-  //printf("INSTALL : %f\n",New_Store[j].Installs); // Only for DEBUG
-  //printf("INSTALL_HARD : %f\n",floatParameter); // Only for DEBUG
-
-  if(New_Store[j].Rating < floatParameter) // if the current member is lower than the Threshold
-  {
-    i++; // We increase the counter i
-    //printf("i : %d\n",i); //Only for DEBUG
-  }
-}
-floatRating = ((i/(NbStructs-1.0))*100); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
-printf("%.2f percent of the app have been Ratied less than %.2f\n",floatRating,floatParameter);
-//printf("End of case 3\n");
-break;
-
-case 4: // Reviews
-
-printf("Entrer un parametre :\n");
-scanf("%f",&floatParameter);
-
-for(int j=1;j<NbStructs;j++)
-{
-
-  //printf("INSTALL : %f\n",New_Store[j].Installs); // Only for DEBUG
-  //printf("INSTALL_HARD : %f\n",floatParameter); // Only for DEBUG
-
-  if(New_Store[j].Reviews < floatParameter)
-  {
-    i++;
-    //printf("i : %d\n",i); //Only for DEBUG
-  }
-}
-floatRating = ((i/(NbStructs-1.0))*100); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
-printf("%.2f percent of the app have been Reviewed less than %.2f\n",floatRating,floatParameter);
-
-break;
-
-case 5: // Size
-
-printf("Entrer un parametre :\n");
-scanf("%f",&floatParameter);
-
-for(int j=1;j<NbStructs;j++)
-{
-
-  //printf("INSTALL : %f\n",New_Store[j].Installs); // Only for DEBUG
-  //printf("INSTALL_HARD : %f\n",floatParameter); // Only for DEBUG
-
-  if(New_Store[j].Size < floatParameter)
-  {
-    i++;
-    //printf("i : %d\n",i); //Only for DEBUG
-  }
-}
-floatRating = ((i/(NbStructs-1.0))*100); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
-printf("%.2f percent of the app have a Size lower than %.2f\n",floatRating,floatParameter);
-
-break;
-
-case 6: // Installs
-printf("Entrer un parametre :\n");
-scanf("%f",&floatParameter);
-
-for(int j=1;j<NbStructs;j++)
-{
-
-  //printf("INSTALL : %f\n",New_Store[j].Installs); // Only for DEBUG
-  //printf("INSTALL_HARD : %f\n",floatParameter); // Only for DEBUG
-
-  if(New_Store[j].Installs < floatParameter)
-  {
-    i++;
-    //printf("i : %d\n",i); //Only for DEBUG
-  }
-}
-floatRating = ((i/(NbStructs-1.0))*100); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
-printf("%.2f percent of the app have been download less than %.2f\n",floatRating,floatParameter);
-printf("End of case 6\n");
-break;
-
-case 7: // Type
-printf("Start of case 7\n");
-printf("NbStructs : %d\n",NbStructs);
-for (int j=1;j<NbStructs;j++)
-{
-  if(strcmp(New_Store[j].Type,"Free") == 0)
-  {
-    i++;
-    //printf("i : %d\n",i); Only for DEBUG
-  }
-}
-Rating = ((i/(NbStructs-1))*100);
-printf("Rating of Free app : %d \n",Rating);
-printf("End of case 7\n");
-break;
-
-case 8 : // Price
-
-printf("Entrer un parametre :\n");
-scanf("%f",&floatParameter);
-
-for(int j=1;j<NbStructs;j++)
-{
-
-  //printf("INSTALL : %f\n",New_Store[j].Installs); // Only for DEBUG
-  //printf("INSTALL_HARD : %f\n",floatParameter); // Only for DEBUG
-
-  if(New_Store[j].Price < floatParameter)
-  {
-    i++;
-    //printf("i : %d\n",i); //Only for DEBUG
-  }
-}
-floatRating = ((i/(NbStructs-1.0))*100); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
-printf("%.2f percent of the app have a Price lower than %.2f\n",floatRating,floatParameter);
-
-break;
-
-case 9 : //Content_Rating
-
-printf("NbStructs : %d\n",NbStructs);
-for (int j=1;j<NbStructs;j++)
-{
-  if(strcmp(New_Store[j].Content_Rating,"Everyone") == 0)
-  {
-    Everyone=Everyone + 1.0;
-    printf("Everyone : %.0f\n",Everyone); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Content_Rating,"Teen") == 0)
-  {
-    Teen=Teen+1;
-    printf("Teen : %.0f\n",Teen); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Content_Rating,"Everyone_10+") == 0)
-  {
-    Everyone_10=Everyone_10+1;
-    printf("Everyone_10 : %.0f\n",Everyone_10); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Content_Rating,"Mature_17+") == 0)
-  {
-    Mature_17=Mature_17+1;
-    printf("Mature_17 : %.0f\n",Mature_17); //Only for DEBUG
-  }
-
-  if(strcmp(New_Store[j].Content_Rating,"Adults_only_18+") == 0)
-  {
-    Adults_only_18=Adults_only_18+1;
-    printf("Adults_only_18 : %.0f\n",Adults_only_18); //Only for DEBUG
-  }
-}
-Rating_Of_Everyone = ((Everyone/(NbStructs-1))*100); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
-Rating_Of_Teen = ((Teen/(NbStructs-1))*100);
-Rating_Of_Everyone_10 = ((Everyone_10/(NbStructs-1))*100);
-Rating_Of_Mature_17 = ((Mature_17/(NbStructs-1))*100);
-Rating_Of_Adults_only_18 = ((Adults_only_18/(NbStructs-1))*100); // Calcul of the percentage (NbStructs-1 because the first struct is the definition of the members)
-
-printf("\n\n*** RESULTS ***\n\n");
-printf("Rating of Everyone app : %.2f \n",Rating_Of_Everyone);
-printf("Rating of Teen app : %.2f \n",Rating_Of_Teen);
-printf("Rating of Everyone_10 app : %.2f \n",Rating_Of_Everyone_10);
-printf("Rating of Mature_17 app : %.2f \n",Rating_Of_Mature_17);
-printf("Rating of Adults_only_18 app : %.2f \n",Adults_only_18);
-printf("\n***********************\n\n");
-
-printf("End of case 7\n");
-break;
-
-case 10: //Genres
-printf("Same as Category, next time type 2 for Category 😛\n");
-break;
-
-case 11: //Last_Updated
-printf("Comming Soon\n");
-break;
-
-case 12: //Current_Ver
-printf("Comming Soon\n");
-break;
-
-case 13: //Android_Ver
-printf("Comming Soon\n");
-break;
-}
-printf("End of partof function\n");
+  // printf("End of partof function\n");
 }
 
 char *choose (int *Selected) // Ask a to choose an number between 1-13
@@ -612,7 +610,8 @@ char *choose (int *Selected) // Ask a to choose an number between 1-13
   static char StrSelect[50];
   do{
 
-    printf("Choisissez un champs(1 a 13):\n1)Name\n2)Category\n3)Rating\n4)Reviews\n5)Size\n6)Installs\n7)Type\n8)Price\n9)Content_Rating\n10)Genres\n11)Last_Updated\n12)Current_Ver\n13)Android_Ver\n");
+    printf("\nChoisissez un champs(1 a 13):\n1) Nom\n2) Catégorie\n3) Note\n4) Commentaires\n5) Taille\n6) Nombre d'installations\n7) Type\n8) Prix\n9) Type d'utilisateur\n10) Genres\n11) Date de derniere MAJ\n12) Numéro de version actuelle\n13) Numéro de Version Android\n");
+    printf("\nVotre choix : ");
     scanf("%d",Selected);
 
     switch (*Selected)
@@ -711,6 +710,7 @@ char *choose (int *Selected) // Ask a to choose an number between 1-13
       default:
       printf("\n\nERREUR DE SAISIE\n\n");
       *Selected = -1;
+      return 0;
       break;
     }
 
@@ -724,7 +724,7 @@ void Txt_to_Struc(FILE* fic, int *i, APPtxt *Store) // Copy all the .txt file in
   char *token;
   *i = 0;
 
-  printf("\nStart of Txt_to_Struc function\n"); // Only for DEBUG
+  //printf("\nStart of Txt_to_Struc function\n"); // Only for DEBUG
 
   while (fgets(LineBuffer,TAILLE,fic)!=NULL)
   {
@@ -774,12 +774,12 @@ void Txt_to_Struc(FILE* fic, int *i, APPtxt *Store) // Copy all the .txt file in
     //printf("End of whileloop\n"); // Only for DEBUG
   }
   fseek(fic, 0, SEEK_SET);
-  printf("End of Txt_to_Struc function\n\n"); //Only for DEBUG
+  //printf("End of Txt_to_Struc function\n\n"); //Only for DEBUG
 }
 
 void RawStructToTypeStruct(APPtxt *Raw_Store, APPtype *New_Store,int NbStructs) // Copy the RawStruct(Only char) To a TypeStruct(char or float)
 {
-  printf("\nStart of RawStructToTypeStruct function\n");
+  //printf("\nStart of RawStructToTypeStruct function\n");
 
   for (int j=0;j<NbStructs;j++)
   {
@@ -804,7 +804,7 @@ void RawStructToTypeStruct(APPtxt *Raw_Store, APPtype *New_Store,int NbStructs) 
     New_Store[j].Android_Ver = atof(Raw_Store[j].Android_Ver);
   }
 
-  printf("End of RawStructToTypeStruct function\n");
+  //printf("End of RawStructToTypeStruct function\n");
 }
 
 int nbdeligne(FILE* fic) // Count the number of ligne of the .txt file
@@ -821,39 +821,39 @@ int nbdeligne(FILE* fic) // Count the number of ligne of the .txt file
 
 void printStore(APPtype *Store,int i) // Print all the PlayStore
 {
-  printf("\nStart of printStore function\n");
+  //printf("\nStart of printStore function\n");
 
   for(int j=0;j<i;j++)
   {
     printf("\n\n*** App n° %d ***\n\n",j);
 
-    printf("\rName of App :            \t\t%s\n",Store[j].Name);
-    printf("\rCategory of App :        \t\t%s\n",Store[j].Category);
-    printf("\rRating of App :          \t\t%.1f/5.0\n",Store[j].Rating);
-    printf("\rReviews of App :         \t\t%.0f\n",Store[j].Reviews);
-    printf("\rSize of App :            \t\t%.0f octets\n",Store[j].Size);
-    printf("\rNb Installs of App :     \t\t%.0f\n",Store[j].Installs);
-    printf("\rType of App :            \t\t%s\n",Store[j].Type);
-    printf("\rPrice of App :           \t\t%.2f $\n",Store[j].Price);
-    printf("\rContent_Rating of App :  \t\t%s\n",Store[j].Content_Rating);
-    printf("\rGenres of App :          \t\t%s\n",Store[j].Genres);
-    printf("\rLast_Updated of App :    \t\t%s\n",Store[j].Last_Updated);
-    printf("\rCurrent_Ver of App :     \t\t%s\n",Store[j].Current_Ver);
-    printf("\rAndroid_Ver of App :     \t\t%.2f\n",Store[j].Android_Ver);
+    printf("\rNom :                           \t\t%s\n",Store[j].Name);
+    printf("\rCatégorie :                     \t\t%s\n",Store[j].Category);
+    printf("\rNote :                          \t\t%.1f/5.0\n",Store[j].Rating);
+    printf("\rNombre de commantaire :         \t\t%.0f\n",Store[j].Reviews);
+    printf("\rTaille :                        \t\t%.0f octets\n",Store[j].Size);
+    printf("\rNombre d'Installations :        \t\t%.0f\n",Store[j].Installs);
+    printf("\rType :                          \t\t%s\n",Store[j].Type);
+    printf("\rPrix :                          \t\t%.2f $\n",Store[j].Price);
+    printf("\rPulic :                         \t\t%s\n",Store[j].Content_Rating);
+    printf("\rGenres :                        \t\t%s\n",Store[j].Genres);
+    printf("\rDerniere MAJ:                   \t\t%s\n",Store[j].Last_Updated);
+    printf("\rVersion Actuelle :              \t\t%s\n",Store[j].Current_Ver);
+    printf("\rVersion Android :               \t\t%.2f\n",Store[j].Android_Ver);
   }
-  printf("End of printStore function\n");
+  //printf("End of printStore function\n");
 }
 
 APPtxt* ResizeStrucTxt(FILE*fic) // dimension le tableau de structure selon le fichier
 {
-  printf("\nStart of ResizeStrucTxt function\n");
+  //printf("\nStart of ResizeStrucTxt function\n");
   APPtxt *Raw_Store = NULL;
 
   int NbDeLigne;
   NbDeLigne = nbdeligne(fic);
   Raw_Store=malloc(NbDeLigne*sizeof(APPtxt));
 
-  printf("End of ResizeStrucTxt function\n");
+  //printf("End of ResizeStrucTxt function\n");
 
   fseek(fic, 0, SEEK_SET);
   return Raw_Store;
@@ -861,257 +861,24 @@ APPtxt* ResizeStrucTxt(FILE*fic) // dimension le tableau de structure selon le f
 
 APPtype* ResizeStructType(FILE*fic) // dimension le tableau de structure selon le fichier
 {
-  printf("\nStart of ResizeStructType function\n");
+  //printf("\nStart of ResizeStructType function\n");
   APPtype *New_Store = NULL;
 
   int NbDeLigne;
   NbDeLigne = nbdeligne(fic);
   New_Store=malloc(NbDeLigne*sizeof(APPtype));
-  printf("End of ResizeStructType function\n");
+  //printf("End of ResizeStructType function\n");
 
   fseek(fic, 0, SEEK_SET);
   return New_Store;
 }
 
-void filter (APPtxt *Store,int Selected,int j)
+float average(APPtype *Store,int Selected, int i) //Calcul the average of something
 {
-  //   if (Selected == 1)
-  //   {
-  //     void qsort (void *Store, size_t j, size_t sizeof (APP), compare_Name));
-  //     static int compare_Name (const APP *a,const APP *b)
-  //     {
-  //       /* definir des pointeurs type's et initialise's
-  //       avec les parametres */
-  //       APP const *pa = a;
-  //       APP const *pb = b;
-  //
-  //       /* evaluer et retourner l'etat de l'evaluation (tri croissant) */
-  //       return strcmp (pa->Name, pb->Name);
-  //     }
-  //     //void qsort (void *Store, size_t j, size_t sizeof APP, compare_Name));
-  //     printStore(Store,j);
-  //   };
-  //   if (Selected == 2)
-  //   {
-  //     static int compare_Category (const APP  *a, const APP  *b)
-  //     {
-  //       /* definir des pointeurs type's et initialise's
-  //       avec les parametres */
-  //       APP const *pa = a;
-  //       APP const *pb = b;
-  //
-  //       /* evaluer et retourner l'etat de l'evaluation (tri croissant) */
-  //       return pa->Category- pb->Category;
-  //     }
-  //     qsort (Store,j,sizeof(APP),compare_Category);
-  //     printStore(Store,j);
-  //   };
-  //   if (Selected == 3)
-  //   {
-  //     static int compare_Rating (const APP const *a, const APP *b)
-  //     {
-  //       int ret = 0;
-  //       double const *pa = a;
-  //       double const *pb = b;
-  //       double diff = *pa.Rating - *pb.Rating;
-  //       if (diff > 0)
-  //       {
-  //         ret = 1;
-  //       }
-  //       else if (diff < 0)
-  //       {
-  //         ret = -1;
-  //       }
-  //       else
-  //       {
-  //         ret = 0;
-  //       }
-  //
-  //       return ret;
-  //     }
-  //   };
-  //   if (Selected == 4)
-  //   {
-  //     static int compare_Review (const APP *a, const APP  *b)
-  //     {
-  //       /* definir des pointeurs type's et initialise's
-  //       avec les parametres */
-  //       int const *pa = a;
-  //       int const *pb = b;
-  //
-  //       /* evaluer et retourner l'etat de l'evaluation (tri croissant) */
-  //       return *pa.Reviews - *pb.Reviews;
-  //     }
-  //     void qsort (void *Store, size_t j, size_t sizeof APP, compare_Review));
-  //     printStore(Store,j);
-  //   };
-  //   if (Selected == 5)
-  //   {
-  //     static int compare_Size (const APP const *a, APP *b)
-  //     {
-  //       /* definir des pointeurs type's et initialise's
-  //       avec les parametres */
-  //       int const *pa = a;
-  //       int const *pb = b;
-  //
-  //       /* evaluer et retourner l'etat de l'evaluation (tri croissant) */
-  //       return *pa.Size - *pb.Size;
-  //     }
-  //     void qsort (void *Store, size_t j, size_t sizeof APP, compare_Size));
-  //     printStore(Store,j);
-  //   };
-  //   if (Selected == 6)
-  //   {
-  //     static int compare_Install (const APP *a, const APP *b)
-  //     {
-  //       /* definir des pointeurs type's et initialise's
-  //       avec les parametres */
-  //       int const *pa = a;
-  //       int const *pb = b;
-  //
-  //       /* evaluer et retourner l'etat de l'evaluation (tri croissant) */
-  //       return *pa.Installs - *pb.Installs;
-  //     }
-  //     void qsort (void *Store, size_t j, size_t sizeof APP, compare_Install));
-  //     printStore(Store,j);
-  //   };
-  //   if (Selected == 7)
-  //   {
-  //     static int compare_Type (const APP *a, const APP *b)
-  //     {
-  //       /* definir des pointeurs type's et initialise's
-  //       avec les parametres */
-  //       int const *pa = a;
-  //       int const *pb = b;
-  //
-  //       /* evaluer et retourner l'etat de l'evaluation (tri croissant) */
-  //       return *pa.Type - *pb.Type;
-  //     }
-  //     void qsort (void *Store, size_t j, size_t sizeof APP, compare_Type));
-  //     printStore(Store,j);
-  //   };
-  //   if (Selected == 8)
-  //   {
-  //     static int compare_Price (const APP *a,const  APP *b)
-  //     {int ret = 0;
-  //       double const *pa = a;
-  //       double const *pb = b;
-  //       double diff = *pa.Price - *pb.Price;
-  //       if (diff > 0)
-  //       {
-  //         ret = 1;
-  //       }
-  //       else if (diff < 0)
-  //       {
-  //         ret = -1;
-  //       }
-  //       else
-  //       {
-  //         ret = 0;
-  //       }
-  //
-  //       return ret;
-  //     }
-  //     void qsort (void *Store, size_t j, size_t sizeof APP, compare_Price));
-  //     printStore(Store,j);
-  //   };
-  //   if (Selected == 9)
-  //   {
-  //     static int compare_Content_Rating (const APP *a, const APP *b)
-  //     {
-  //       int ret = 0;
-  //       double const *pa = a;
-  //       double const *pb = b;
-  //       double diff = *pa.Rating - *pb.Rating;
-  //       if (diff > 0)
-  //       {
-  //         ret = 1;
-  //       }
-  //       else if (diff < 0)
-  //       {
-  //         ret = -1;
-  //       }
-  //       else
-  //       {
-  //         ret = 0;
-  //       }
-  //
-  //       return ret;
-  //     }
-  //
-  //     void qsort (void *Store, size_t j, size_t sizeof APP, compare_Content_Rating));
-  //     printStore(Store,j);
-  //   };
-  //   if (Selected == 10)
-  //   {
-  //     static int compare_Genres (const APP *a,const  APP *b)
-  //     {
-  //       /* definir des pointeurs type's et initialise's
-  //       avec les parametres */
-  //       APP const *pa = a;
-  //       APP const *pb = b;
-  //
-  //       /* evaluer et retourner l'etat de l'evaluation (tri croissant) */
-  //       return strcmp (pa->Genres, pb->Genres);
-  //     }
-  //     void qsort (void *Store, size_t j, size_t sizeof APP, compare_Genres));
-  //     printStore(Store,j);
-  //   };
-  //   if (Selected == 11)
-  //   {
-  //     static int compare_Last_Updated (const APP *a,const  APP *b)
-  //     {
-  //       /* definir des pointeurs type's et initialise's
-  //       avec les parametres */
-  //       int const *pa = a;
-  //       int const *pb = b;
-  //
-  //       /* evaluer et retourner l'etat de l'evaluation (tri croissant) */
-  //       return *pa.Last_Updated - *pb.Last_Updated;
-  //     }
-  //     void qsort (void *Store, size_t j, size_t sizeof APP, compare_Last_Updated));
-  //     printStore(Store,j);
-  //   };
-  //   if (Selected == 12)
-  //   {
-  //     static int compare_Current_Ver (const APP *a,const  APP *b)
-  //     {
-  //       /* definir des pointeurs type's et initialise's
-  //       avec les parametres */
-  //       APP const *pa = a;
-  //       APP const *pb = b;
-  //
-  //       /* evaluer et retourner l'etat de l'evaluation (tri croissant) */
-  //       return strcmp (pa->Current_Ver, pb->Current_Ver);
-  //     }
-  //     void qsort (void *Store, size_t j, size_t sizeof APP, compare_Current_Ver));
-  //     printStore(Store,j);
-  //   };
-  //   if (Selected == 13)
-  //   {
-  //     static int compare_Android_Ver (const APP *a,const  APP *b)
-  //     {
-  //       {
-  //         /* definir des pointeurs type's et initialise's
-  //         avec les parametres */
-  //         APP const *pa = a;
-  //         APP const *pb = b;
-  //
-  //         /* evaluer et retourner l'etat de l'evaluation (tri croissant) */
-  //         return strcmp (pa->Android_Ver, pb->Android_Ver);
-  //       }
-  //     }
-  //     void qsort (void *Store, size_t j, size_t sizeof APP, compare_Android_Ver));
-  //     printStore(Store,j);
-  //   };
-}
+  //printf("Start of Average function\n"); // Only For DEBUG
 
-void average(APPtype *Store,int Selected, int i) //Calcul the average of something
-{
-  printf("Start of Average function\n"); // Only For DEBUG
-
-  float Average = 0; //
-  float Sum = 0;
+  float Average = 0.0; //
+  float Sum = 0.0;
 
   switch (Selected)
   {
@@ -1124,9 +891,9 @@ void average(APPtype *Store,int Selected, int i) //Calcul the average of somethi
     }
     //printf("i : %d\n",i);
 
-    Average = Sum/i;
-    printf("The average of Rating is : %.2f\n",Average);
-    //return Average;
+    Average = Sum/(i-1.0);
+    printf("\nEn moyenne un App est notée : %.2f/5.0\n",Average);
+    return Average;
     break;
 
     case 4:
@@ -1136,9 +903,9 @@ void average(APPtype *Store,int Selected, int i) //Calcul the average of somethi
       // printf("Nb of Reviews of App n°%d : %.2f\n",j,Store[j].Reviews); // Only For DEBUG
     }
 
-    Average = Sum/i;
-    printf("The average of Reviews is : %.2f\n",Average);
-    //return Average;
+    Average = Sum/(i-1.0);
+    printf("\nEn moyenne un App est commentée: %.2f fois\n",Average);
+    return Average;
     break;
 
     case 5:
@@ -1148,9 +915,9 @@ void average(APPtype *Store,int Selected, int i) //Calcul the average of somethi
       // printf("Size of App n°%d : %.0f\n",j,Store[j].Size); // Only For DEBUG
     }
 
-    Average = Sum/i;
-    printf("The average of Size is : %.2f octets\n",Average);
-    //return Average;
+    Average = Sum/(i-1.0);
+    printf("\nEn moyenne un App fait : %.0f octets\n",Average);
+    return Average;
     break;
 
     case 6:
@@ -1160,9 +927,9 @@ void average(APPtype *Store,int Selected, int i) //Calcul the average of somethi
       // printf("Nb of Installs of App n°%d : %.2f\n",j,Store[j].Installs); // Only for DEBUG
     }
 
-    Average = Sum/i;
-    printf("The average of Installs is : %.2f\n",Average);
-    //return Average;
+    Average = Sum/(i-1.0);
+    printf("\nEn moyenne, une App est installée : %.0f fois\n",Average);
+    return Average;
     break;
 
     case 8:
@@ -1172,16 +939,18 @@ void average(APPtype *Store,int Selected, int i) //Calcul the average of somethi
       // printf("Price of App n°%d : %.2f\n",j,Store[j].Price); // Only for DEBUG
     }
 
-    Average = Sum/i;
-    printf("The average of Price is : %.2f $\n",Average);
-    //return Average;
+    Average = Sum/(i-1.0);
+    printf("\nEn moyenne une App coûte : %.2f $\n",Average);
+    return Average;
     break;
 
     default : // If an other values is choosen :
-    printf("Le parametre choisie ne permet pas de faire une moyenne 😥\n"); // print a erreur if the member of the struct is not a integer value
+    printf("\n **** Votre choix ne permet pas d'etablir une moyenne *** 😥\n"); // print a error if the member of the struct is not a integer value
+    return 0;
+    break;
   }
 
-  printf("End of Average function\n"); // Only For DEBUG
+  //printf("End of Average function\n"); // Only For DEBUG
 }
 
 void menu(FILE* fic) // print the menu
@@ -1204,13 +973,14 @@ void menu(FILE* fic) // print the menu
 
   do{
 
-    printf("\n\n🤶🎅 Menu Principal 🎅🤶\n\n");
+    printf("\n🤶🎅 Menu Principal 🎅🤶\n\n");
 
     printf("1) Afficher le PlayStore\n");
     printf("2) Tri croissant en fonction d'un parametre\n");
     printf("3) Calculer une moyenne\n");
     printf("4) Calculer un pourcentage\n");
-    printf("5) Quiter le programme\n\n");
+    printf("5) Caluler l'espérance qu'un App soit téléchargée en étant gratuite\n");
+    printf("6) Quiter le programme\n\n");
 
     printf("Votre choix : ");
     scanf("%d",&Selected);
@@ -1237,6 +1007,10 @@ void menu(FILE* fic) // print the menu
       break;
 
       case 5:
+      Esperance(New_Store,NbStructs);
+      break;
+
+      case 6:
       printf("\n🎉🍾 Joyeuse fete ! 🍾🎉\n\n");
       break;
 
@@ -1244,12 +1018,12 @@ void menu(FILE* fic) // print the menu
       printf("Erreur de saisie\n");
       break;
     }
-  }while(Selected != 5);
+  }while(Selected != 6);
 }
 
 void Correct_Member(APPtxt *Raw_Store,int i) // correct the member of the struct in order to make easier the futur treatment
 {
-  printf("Start of Correct_Member function\n"); // Only for DEBUG
+  //printf("Start of Correct_Member function\n"); // Only for DEBUG
 
   for (int j=1;j<i;j++) // Treat all the structs
   {
@@ -1383,28 +1157,138 @@ void Correct_Member(APPtxt *Raw_Store,int i) // correct the member of the struct
 
     //printf("%s\n",Raw_Store[j].Android_Ver);
   }
-  printf("End of Correct_Member function\n"); // Only for DEBUG
+  //printf("End of Correct_Member function\n"); // Only for DEBUG
 }
 
 void Sort_float(APPtype *Store,int NbStructs)
 {
   APPtype tmp;
+  int choix=0;
 
-  printf("\n *** Veuillez Patienter ***\n");
-  printf("Vous avez le temps de faire un cafe :)\n");
+  char *StrSelect[50];
 
-  for(int i=0;i<NbStructs;i++)
+  *StrSelect = choose(&choix);
+
+  switch (choix)
   {
-    for(int j=0;j<(NbStructs-i);j++)
+    case 3:
+    printf("\n *** Veuillez Patienter ***\n");
+    printf("Vous avez le temps de faire un cafe :)\n");
+
+    for(int i=0;i<NbStructs;i++)
     {
-      if (Store[j].Rating > Store[j+1].Rating)
+      for(int j=0;j<(NbStructs-i);j++)
       {
-        tmp=Store[j];
-        Store[j]=Store[j+1];
-        Store[j+1] = tmp;
+        if (Store[j].Rating > Store[j+1].Rating)
+        {
+          tmp=Store[j];
+          Store[j]=Store[j+1];
+          Store[j+1] = tmp;
+        }
       }
     }
-  }
+    printStore(Store,NbStructs);
+    break;
 
-  printStore(Store,NbStructs);
+    case 4:
+    printf("\n *** Veuillez Patienter ***\n");
+    printf("Vous avez le temps de faire un cafe :)\n");
+
+    for(int i=0;i<NbStructs;i++)
+    {
+      for(int j=0;j<(NbStructs-i);j++)
+      {
+        if (Store[j].Reviews > Store[j+1].Reviews)
+        {
+          tmp=Store[j];
+          Store[j]=Store[j+1];
+          Store[j+1] = tmp;
+        }
+      }
+    }
+    printStore(Store,NbStructs);
+    break;
+
+    case 5:
+    printf("\n *** Veuillez Patienter ***\n");
+    printf("Vous avez le temps de faire un cafe :)\n");
+
+    for(int i=0;i<NbStructs;i++)
+    {
+      for(int j=0;j<(NbStructs-i);j++)
+      {
+        if (Store[j].Size > Store[j+1].Size)
+        {
+          tmp=Store[j];
+          Store[j]=Store[j+1];
+          Store[j+1] = tmp;
+        }
+      }
+    }
+    printStore(Store,NbStructs);
+    break;
+
+    case 6:
+    printf("\n *** Veuillez Patienter ***\n");
+    printf("Vous avez le temps de faire un cafe :)\n");
+
+    for(int i=0;i<NbStructs;i++)
+    {
+      for(int j=0;j<(NbStructs-i);j++)
+      {
+        if (Store[j].Installs > Store[j+1].Installs)
+        {
+          tmp=Store[j];
+          Store[j]=Store[j+1];
+          Store[j+1] = tmp;
+        }
+      }
+    }
+    printStore(Store,NbStructs);
+    break;
+
+    case 8:
+    printf("\n *** Veuillez Patienter ***\n");
+    printf("Vous avez le temps de faire un cafe :)\n");
+
+    for(int i=0;i<NbStructs;i++)
+    {
+      for(int j=0;j<(NbStructs-i);j++)
+      {
+        if (Store[j].Price > Store[j+1].Price)
+        {
+          tmp=Store[j];
+          Store[j]=Store[j+1];
+          Store[j+1] = tmp;
+        }
+      }
+    }
+    printStore(Store,NbStructs);
+    break;
+
+    default :
+    printf("\n**** Votre choix ne permet pas de trier les Apps ***\n");
+    break;
+  }
 }
+
+void Esperance(APPtype *Store,int NbStructs)
+{
+  int n=0;
+  float Average=0.0,
+  esperance=0.0;
+
+
+  Average = average(Store,6,NbStructs); // Need the average for esperance
+
+  for (int j=1; j<NbStructs; j++)
+  {
+    if ((strcmp(Store[j].Type,"Free"))==0)
+    {
+      esperance=esperance+(Store[j].Installs-Average);
+      n++;
+    };
+  };
+  esperance= esperance/n;
+  printf("Un App gratuite peut espérer être téléchargée: %.2f fois\n",esperance);
+};

@@ -1,6 +1,6 @@
 #include "../inc/function.h"
 
-void main(void)
+int main(void)
 {
 
   FILE* fic=NULL;
@@ -18,4 +18,6 @@ void main(void)
     fclose(fic);
     fic=NULL;
   }
+
+  return 0;
 }
