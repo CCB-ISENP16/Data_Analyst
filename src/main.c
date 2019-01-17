@@ -4,12 +4,12 @@ int main(void)
 {
 
   FILE* fic=NULL;
-
+  FILE* fic2=NULL;
   //printf("Start of prog\n");
 
   fp_OuvertureFichier(&fic); // open file .txt
-
-  menu(fic);
+  fp_OuvertureFichierCSV(&fic2);
+  menu(fic,fic2);
 
   //printf("Fin de prog\n");
 
@@ -18,6 +18,6 @@ int main(void)
     fclose(fic);
     fic=NULL;
   }
-
+  fclose(fic2);
   return 0;
 }

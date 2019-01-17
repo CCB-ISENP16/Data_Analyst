@@ -2,7 +2,7 @@
 
 void fp_OuvertureFichier(FILE** fp) // Open the .txt file
 {
-  //fprintf(stdout,"fp_OuvertureFichier: Begin\n");
+  fprintf(stdout,"fp_OuvertureFichier: Begin\n");
 
   *fp=fopen("data/googleplaystore.txt","r+"); // open in read+ (Open for reading and writing)
   if(*fp==NULL)
@@ -16,7 +16,7 @@ void fp_OuvertureFichier(FILE** fp) // Open the .txt file
       exit(-1);
     }
   }
-  //fprintf(stdout,"fp_OuvertureFichier: End\n\n");
+  fprintf(stdout,"fp_OuvertureFichier: End\n\n");
 }
 
 void partof(APPtype *New_Store,int choix,int NbStructs) // Calcul the % of something
@@ -724,7 +724,7 @@ void Txt_to_Struc(FILE* fic, int *i, APPtxt *Store) // Copy all the .txt file in
   char *token;
   *i = 0;
 
-  //printf("\nStart of Txt_to_Struc function\n"); // Only for DEBUG
+  printf("\nStart of Txt_to_Struc function\n"); // Only for DEBUG
 
   while (fgets(LineBuffer,TAILLE,fic)!=NULL)
   {
@@ -953,24 +953,33 @@ float average(APPtype *Store,int Selected, int i) //Calcul the average of someth
   //printf("End of Average function\n"); // Only For DEBUG
 }
 
-void menu(FILE* fic) // print the menu
+void menu(FILE* fic, FILE* fic2) // print the menu
 {
+
   int Selected = 0,
   NbStructs = 0,
   choix = 0;
 
   APPtype *New_Store = NULL;
   APPtxt *Raw_Store = NULL;
+
+  TAB_graph *Graph = NULL;
+  TAB_graphString *GraphSting=NULL;
+
   char *StrSelect[50];
 
 
   Raw_Store = ResizeStrucTxt(fic);
   New_Store = ResizeStructType(fic);
 
+
   Txt_to_Struc(fic,&NbStructs,Raw_Store);
   Correct_Member(Raw_Store,NbStructs);
   RawStructToTypeStruct(Raw_Store,New_Store,NbStructs);
 
+
+  Graph = ResizeStrucGraph(New_Store,fic);
+  GraphSting = ResizeStrucGraphString(New_Store,fic);
   do{
 
     printf("\n🤶🎅 Menu Principal 🎅🤶\n\n");
@@ -980,7 +989,8 @@ void menu(FILE* fic) // print the menu
     printf("3) Calculer une moyenne\n");
     printf("4) Calculer un pourcentage\n");
     printf("5) Caluler l'espérance qu'un App soit téléchargée en étant gratuite\n");
-    printf("6) Quiter le programme\n\n");
+    printf("6) Régression linéaire (Prix / Installation)\n");
+    printf("7) Quiter le programme\n\n");
 
     printf("Votre choix : ");
     scanf("%d",&Selected);
@@ -1011,6 +1021,14 @@ void menu(FILE* fic) // print the menu
       break;
 
       case 6:
+      //Get_Values(New_Store,NbStructs);
+      RawStructToGraph(New_Store,Graph,NbStructs);
+      SortGraph(Graph,NbStructs);
+      //TAB_graphToTAB_graphString(Graph,GraphSting,NbStructs);
+      exportGraph(Graph,NbStructs,fic2);
+      break;
+
+      case 7:
       printf("\n🎉🍾 Joyeuse fete ! 🍾🎉\n\n");
       break;
 
@@ -1018,7 +1036,7 @@ void menu(FILE* fic) // print the menu
       printf("Erreur de saisie\n");
       break;
     }
-  }while(Selected != 6);
+  }while(Selected != 7);
 }
 
 void Correct_Member(APPtxt *Raw_Store,int i) // correct the member of the struct in order to make easier the futur treatment
@@ -1292,3 +1310,120 @@ void Esperance(APPtype *Store,int NbStructs)
   esperance= esperance/n;
   printf("Un App gratuite peut espérer être téléchargée: %.2f fois\n",esperance);
 };
+
+void RawStructToGraph(APPtype *Store, TAB_graph *Graph, int NbStructs)
+{
+  // TAB_graph *Graph = NULL;
+  // Graph = ResizeStrucGraph(Store,fic);
+
+  for(int i=1;i<NbStructs;i++)
+  {
+    printf("i : %d\n",i);
+    Graph[i-1].y = Store[i].Price;
+    Graph[i-1].x = Store[i].Installs;
+
+    printf("Y : %.2f\n",Graph[i].y); //ONLY FOR DEBUG
+    printf("X : %.2f\n\n",Graph[i].x); //ONLY OR DEBUG
+  }
+}
+
+TAB_graph* ResizeStrucGraph(APPtype *Store, FILE* fic)
+{
+  TAB_graph *Graph = NULL;
+  int NbDeLigne;
+  NbDeLigne = nbdeligne(fic);
+  Graph=malloc(NbDeLigne*sizeof(TAB_graph));
+
+  return Graph;
+}
+
+TAB_graphString* ResizeStrucGraphString(APPtype *Store, FILE* fic)
+{
+  TAB_graphString *GraphSting = NULL;
+  int NbDeLigne;
+  NbDeLigne = nbdeligne(fic);
+  GraphSting=malloc(NbDeLigne*sizeof(TAB_graphString));
+
+  return GraphSting;
+}
+
+void SortGraph(TAB_graph *Graph, int NbStructs)
+{
+  TAB_graph tmp;
+
+  for(int i=0;i<NbStructs;i++)
+  {
+    for(int j=0;j<(NbStructs-i);j++)
+    {
+      if (Graph[j].y > Graph[j+1].y)
+      {
+        tmp=Graph[j];
+        Graph[j]=Graph[j+1];
+        Graph[j+1] = tmp;
+      }
+    }
+    printf("Sort n° %d\n\n",i);
+    printf("X : %.0f\n",Graph[i].x);
+    printf("Y : %.2f\n\n",Graph[i].y);
+  }
+
+  // for (int i=0;i<NbStructs;i++)
+  // {printf("i :%d\n",i);
+  //   if (Graph[i].y == pricerange1)
+  //   {
+  //     pricerange1++;
+  //   }
+  // }
+  //
+  // printf("pricerange1 : %d\n",pricerange1);
+  // //printf("pricerange2 : %d\n",pricerange2);
+
+}
+void exportGraph(TAB_graph *Graph, int NbStructs, FILE *fic2)
+{
+  fseek(fic2, 0, SEEK_SET);
+
+  fputs("Price",fic2);
+  fputc(',',fic2);
+
+  fputs("Install",fic2);
+  fputc('\n',fic2);
+
+  for (int i=0;i<NbStructs-1;i++)
+  {
+    fprintf(fic2,"%.2f",Graph[i].y);
+    fputc(',',fic2);
+    fprintf(fic2,"%.0f",Graph[i].x);
+    fputc('\n',fic2);
+  }
+  fclose(fic2);
+  printf("FICHIER FERMER\n");
+}
+
+void fp_OuvertureFichierCSV(FILE** fp2) // Open the .txt file
+{
+  fprintf(stdout,"fp_OuvertureFichier2: Begin\n");
+
+  *fp2=fopen("data/graph.csv","w+"); // open in read+ (Open for reading and writing)
+  if(*fp2==NULL)
+  {
+    fprintf(stdout,"Erreur ouverture fichier2 r+\n"); // if the opening in r+ failed
+
+    *fp2=fopen("data/graph.csv","w+"); // open the file in w+ in order to create it if it does not exist WARNING in this mode the cursor is placed at the end of the file.
+    if(*fp2==NULL)
+    {
+      fprintf(stdout,"Erreur ouverture fichier2 w+. Sortie du programme\n"); // if the opening fail again we stop the programme
+      exit(-1);
+    }
+  }
+  fprintf(stdout,"fp_OuvertureFichier2: End\n\n");
+}
+
+void TAB_graphToTAB_graphString(TAB_graph *Graph, TAB_graphString *GraphSting, int NbStructs)
+{
+  for(int i =0;i<NbStructs;i++)
+  {
+    //ftoa(Graph[i].y,GraphSting[i].y,2);
+    //ftoa(Graph[i].x,GraphSting[i].x,0);
+  }
+}
